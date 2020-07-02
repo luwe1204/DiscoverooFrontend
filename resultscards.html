@@ -1,0 +1,3284 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ergebnisseite</title> 
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+  <script src="https://kit.fontawesome.com/61fbcbabe9.js" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/p5@1.0.0/lib/p5.js"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
+  <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+  <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+  
+
+</head>
+
+<body>
+
+<style>
+
+    body{
+        background-color: #2EC5BC;
+    }
+
+    .col-sm{
+        padding-left: 0px;
+        padding-right: 0px;
+    }
+
+    p{
+        font-family: 'Rubik', sans-serif;
+        font-weight: 300;
+        font-size: medium;
+        line-height: normal;
+        margin-bottom:7px;
+    }
+
+    h4-1{
+        font-family: 'Rubik', sans-serif;
+        font-weight: 400;
+        font-size: large;
+        line-height: x-large;
+        padding-top: 5px;
+    }
+
+    p2{
+        font-family: 'Rubik', sans-serif;
+        font-weight: 300;
+        font-size: medium;
+        line-height: normal;
+        margin-bottom:7px;
+    }
+
+    h1, h2, h3{
+        font-family: 'Rubik', sans-serif;
+        font-weight: 500;
+        padding-bottom: 5px;
+    }
+    
+
+    h4, h5, h6{
+        font-family: 'Rubik', sans-serif;
+        font-weight: 400;
+        padding-top: 5px;
+    }
+
+    .card{
+        box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+        margin-bottom: 10px;
+        position: relative;
+        margin-left: 10px;
+        margin-right: 10px;
+        display: none;
+        cursor:auto;
+    }
+
+    .card:hover{
+        transform: scale(1.01);
+    }
+
+    .chart {
+    width: 100%; 
+    }
+    .row {
+    margin:0;
+    }
+
+    .table-borderless{
+        margin-top: 10px;
+        text-align: left; 
+        font-family: 'Rubik', sans-serif;
+        font-weight: 300;
+        font-size: large;
+        line-height:inherit;
+        margin-bottom:10px;
+    }
+  
+    .card-img{
+        width: 100%;
+        height: 14rem;
+        object-fit:cover;
+    }
+
+    .card-title{
+        padding-right: 20px;
+        padding-left: 15px;
+        position: relative;
+    }
+
+    .checked {
+        color: orange;
+    }
+
+    .wrapper {
+    position: relative;
+    }   
+
+    .btn{
+        width: 100%;
+        font-size:small;
+        background: white;
+        border: none;
+        color: black;
+      }
+
+      .btn:hover{
+        background: #40b2e3;
+        outline: none;
+        box-shadow: none;
+      }
+
+      .btn:focus{
+        background: #40b2e3;
+        outline: none;
+        box-shadow: none;
+      }
+
+      .btn:active{
+        background: #40b2e3;
+        outline: none;
+        box-shadow: none;
+      }
+
+
+/*     .treppchen {
+        font-size: xx-large;
+        text-shadow:  1px  1px 1px black,
+                  1px -1px 1px black,
+                 -1px  1px 1px black,
+                 -1px -1px 1px black;
+        font-weight: 800;
+        color: gold;
+        position:absolute;
+        top:1rem;
+        right:1rem;
+    }
+ */
+    #resultcard1 {
+    display: none;
+    cursor:auto;
+    }
+
+    #more1{
+    width: fit-content;
+    display: none;
+    cursor: auto;
+    margin-bottom: 10px;
+    }
+
+    #less1{
+    width: fit-content;
+    display: none;
+    cursor: auto;
+    margin-bottom: 10px;
+    }
+
+
+ 
+
+</style>
+
+    
+    <div class="text-dark" class="text-center" style="width: 100%">
+
+        <br><br>
+
+        
+            
+    <div class="container" style="max-width: 90rem;">
+            
+            <div class="card" id="yourresult" style="text-align: center; display:none;padding-top: 10px; pointer-events:none;max-width: 100%;">
+                <h1>Dein Ergebnis</h1>
+            </div>
+
+
+        <div class="row">
+            <div class="col-sm">
+                <div class="card" style="padding-top: 15px;" class="resultcard" id="resultcard1">
+                    <img src="1st.png" alt="1st" style="height: 48px; width: auto; position:absolute; top:1rem; right:1rem;">
+                    <div id="info1"></div>
+                    <span class="row">
+                        <span class="col-sm">
+                            <h5 class="card-title" style="text-align: center; padding-left: 15px; padding-top: 0px;" id="top1">
+                            </h5>                              
+                            <div id="imagelink1">
+                            </div>
+                        </span>
+                                    <span class="col-sm" style="padding-left: 17px;">    
+                                    <div id="city1"></div>
+                                    </span>
+                                    <span class="col-sm" style="padding-left: 17px;">
+                                    <div id="country1"></div>
+                                    <div class="container"><div id="curve_chart-1"></div></div>
+                                    <div id="piechart1"></div>
+                                    </span>
+                                    <!--<div id="table_div1-1"></div>
+ -->                                        <!-- <div class="table-sm">
+                                            <table class="table-sm">
+                                                <thead>
+                                                    <tr>
+                                                        <th scope="col">Monat</th>
+                                                        <th scope="col">Jan</th>
+                                                        <th scope="col">Feb</th>
+                                                        <th scope="col">Mär</th>
+                                                        <th scope="col">Apr</th>
+                                                        <th scope="col">Mai</th>
+                                                        <th scope="col">Jun</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr>
+                                                        <th scope="row">Min.C°</th>
+                                                        <td><div id="JanMin1"></div></td>
+                                                        <td><div id="FebMin1"></div></td>
+                                                        <td><div id="MarMin1"></div></td>
+                                                        <td><div id="AprMin1"></div></td>
+                                                        <td><div id="MayMin1"></div></td>
+                                                        <td><div id="JunMin1"></div></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th scope="row">Max.C°</th>
+                                                        <td><div id="JanMax1"></div></td>
+                                                        <td><div id="FebMax1"></div></td>
+                                                        <td><div id="MarMax1"></div></td>
+                                                        <td><div id="AprMax1"></div></td>
+                                                        <td><div id="MayMax1"></div></td>
+                                                        <td><div id="JunMax1"></div></td>
+                                                    </tr>
+                                                </tbody>
+                                            </table> 
+                                        </div> -->
+                                    
+<!--                                         <div id="table_div1-2"></div>
+                                             <div class="table-sm">
+                                            <table class="table-sm">
+                                                <thead>
+                                                    <tr>
+                                                        <th scope="col">Monat</th>
+                                                        <th scope="col">Jul</th>
+                                                        <th scope="col">Aug</th>
+                                                        <th scope="col">Sep</th>
+                                                        <th scope="col">Okt</th>
+                                                        <th scope="col">Nov</th>
+                                                        <th scope="col">Dez</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr>
+                                                        <th scope="row">Min.C°</th>
+                                                        <td><div id="JulMin1"></div></td>
+                                                        <td><div id="AugMin1"></div></td>
+                                                        <td><div id="SepMin1"></div></td>
+                                                        <td><div id="OctMin1"></div></td>
+                                                        <td><div id="NovMin1"></div></td>
+                                                        <td><div id="DecMin1"></div></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th scope="row">Max.C°</th>
+                                                        <td><div id="JulMax1"></div></td>
+                                                        <td><div id="AugMax1"></div></td>
+                                                        <td><div id="SepMax1"></div></td>
+                                                        <td><div id="OctMax1"></div></td>
+                                                        <td><div id="NovMax1"></div></td>
+                                                        <td><div id="DecMax1"></div></td>                               
+                                                    </tr>
+                                                </tbody>
+                                            </table> 
+                                        </div>-->
+                    </span>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-sm">
+                <div class="card" class="resultcard" id="resultcard2" data-toggle="collapse" data-target="#results2" aria-expanded="false" aria-controls="results2">
+                    <span class="row">
+                        <span class="col-sm">
+                            <div id="imagelink2">
+                            </div>
+                        </span>
+                        <span class="col-sm">
+                            <h5 class="card-title" id="top2">
+                            </h5>
+                        </span>
+                    </span>         
+                <div class="container">
+                    <div class="collapse" id="results2" data-parent="resultsshort2">
+                        <div id="info2"></div>
+                        <span class="row">
+                                
+                                    <span class="col-sm">
+                                        <div id="city2"></div>
+                                    </span>
+                                    <span class="col-sm">                           
+                                        <div id="country2"></div>
+                                        <div id="piechart2"></div>
+                                        <div id="curve_chart-2"></div>
+                                    </span>
+                        </span>
+                        <span class="row">
+                                    <span class="col-sm">
+<!--                                         <div id="table_div2-1"></div>
+ --><!--                                         <div class="table-sm">
+                                            <table class="table-sm">
+                                                <thead>
+                                                    <tr>
+                                                        <th scope="col">Monat</th>
+                                                        <th scope="col">Jan</th>
+                                                        <th scope="col">Feb</th>
+                                                        <th scope="col">Mär</th>
+                                                        <th scope="col">Apr</th>
+                                                        <th scope="col">Mai</th>
+                                                        <th scope="col">Jun</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr>
+                                                        <th scope="row">Min.C°</th>
+                                                        <td><div id="JanMin2"></div></td>
+                                                        <td><div id="FebMin2"></div></td>
+                                                        <td><div id="MarMin2"></div></td>
+                                                        <td><div id="AprMin2"></div></td>
+                                                        <td><div id="MayMin2"></div></td>
+                                                        <td><div id="JunMin2"></div></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th scope="row">Max.C°</th>
+                                                        <td><div id="JanMax2"></div></td>
+                                                        <td><div id="FebMax2"></div></td>
+                                                        <td><div id="MarMax2"></div></td>
+                                                        <td><div id="AprMax2"></div></td>
+                                                        <td><div id="MayMax2"></div></td>
+                                                        <td><div id="JunMax2"></div></td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+ -->                                    </span>
+                            
+                                    <span class="col-sm">
+<!--                                         <div id="table_div2-2"></div>
+                                          <div class="table-sm">
+                                            <table class="table-sm">
+                                                <thead>
+                                                    <tr>
+                                                        <th scope="col">Monat</th>
+                                                        <th scope="col">Jul</th>
+                                                        <th scope="col">Aug</th>
+                                                        <th scope="col">Sep</th>
+                                                        <th scope="col">Okt</th>
+                                                        <th scope="col">Nov</th>
+                                                        <th scope="col">Dez</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr>
+                                                        <th scope="row">Min.C°</th>
+                                                        <td><div id="JulMin2"></div></td>
+                                                        <td><div id="AugMin2"></div></td>
+                                                        <td><div id="SepMin2"></div></td>
+                                                        <td><div id="OctMin2"></div></td>
+                                                        <td><div id="NovMin2"></div></td>
+                                                        <td><div id="DecMin2"></div></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th scope="row">Max.C°</th>
+                                                        <td><div id="JulMax2"></div></td>
+                                                        <td><div id="AugMax2"></div></td>
+                                                        <td><div id="SepMax2"></div></td>
+                                                        <td><div id="OctMax2"></div></td>
+                                                        <td><div id="NovMax2"></div></td>
+                                                        <td><div id="DecMax2"></div></td>                               
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+ -->                                    </span>
+                        </span>
+                    </div>
+                </div>
+                </div>
+            </div>
+      
+            <div class="col-sm">
+                <div class="card" class="resultcard" id="resultcard3" data-toggle="collapse" data-target="#results3" aria-expanded="false" aria-controls="results3">
+                    <span class="row">
+                        <span class="col-sm">
+                            <div id="imagelink3">
+                            </div>
+                        </span>
+                        <span class="col-sm">
+                            <h5 class="card-title" id="top3">
+                            </h5>
+                        </span>
+                    </span>         
+                <div class="container">
+                    <div class="collapse" id="results3" data-parent="resultsshort3">
+                        <div id="info3"></div>
+                        <span class="row">
+                                
+                                    <span class="col-sm">
+                                        <div id="city3"></div>
+                                    </span>
+                                    <span class="col-sm">                           
+                                        <div id="country3"></div>
+                                        <div id="piechart3"></div>
+                                        <div id="curve_chart-3"></div>
+                                    </span>
+                        </span>
+                        <span class="row">
+                                    <span class="col-sm">
+
+<!--                                         <div class="table-sm">
+                                            <table class="table-sm">
+                                                <thead>
+                                                    <tr>
+                                                        <th scope="col">Monat</th>
+                                                        <th scope="col">Jan</th>
+                                                        <th scope="col">Feb</th>
+                                                        <th scope="col">Mär</th>
+                                                        <th scope="col">Apr</th>
+                                                        <th scope="col">Mai</th>
+                                                        <th scope="col">Jun</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr>
+                                                        <th scope="row">Min.C°</th>
+                                                        <td><div id="JanMin3"></div></td>
+                                                        <td><div id="FebMin3"></div></td>
+                                                        <td><div id="MarMin3"></div></td>
+                                                        <td><div id="AprMin3"></div></td>
+                                                        <td><div id="MayMin3"></div></td>
+                                                        <td><div id="JunMin3"></div></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th scope="row">Max.C°</th>
+                                                        <td><div id="JanMax3"></div></td>
+                                                        <td><div id="FebMax3"></div></td>
+                                                        <td><div id="MarMax3"></div></td>
+                                                        <td><div id="AprMax3"></div></td>
+                                                        <td><div id="MayMax3"></div></td>
+                                                        <td><div id="JunMax3"></div></td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+ -->                                    </span>
+                            
+                                    <span class="col-sm">
+                                        <!-- <div id="table_div3-2"></div> -->
+<!--                                         <div class="table-sm">
+                                            <table class="table-sm">
+                                                <thead>
+                                                    <tr>
+                                                        <th scope="col">Monat</th>
+                                                        <th scope="col">Jul</th>
+                                                        <th scope="col">Aug</th>
+                                                        <th scope="col">Sep</th>
+                                                        <th scope="col">Okt</th>
+                                                        <th scope="col">Nov</th>
+                                                        <th scope="col">Dez</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr>
+                                                        <th scope="row">Min.C°</th>
+                                                        <td><div id="JulMin3"></div></td>
+                                                        <td><div id="AugMin3"></div></td>
+                                                        <td><div id="SepMin3"></div></td>
+                                                        <td><div id="OctMin3"></div></td>
+                                                        <td><div id="NovMin3"></div></td>
+                                                        <td><div id="DecMin3"></div></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th scope="row">Max.C°</th>
+                                                        <td><div id="JulMax3"></div></td>
+                                                        <td><div id="AugMax3"></div></td>
+                                                        <td><div id="SepMax3"></div></td>
+                                                        <td><div id="OctMax3"></div></td>
+                                                        <td><div id="NovMax3"></div></td>
+                                                        <td><div id="DecMax3"></div></td>                               
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+ -->                                    </span>
+                        </span>
+                    </div>
+                </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-sm">
+                <div class="card" class="resultcard" id="resultcard4" data-toggle="collapse" data-target="#results4" aria-expanded="false" aria-controls="results4">
+                    <span class="row">
+                        <span class="col-sm">
+                            <div id="imagelink4">
+                            </div>
+                        </span>
+                        <span class="col-sm">
+                            <h5 class="card-title" id="top4">
+                            </h5>
+                        </span>
+                    </span>         
+                <div class="container">
+                    <div class="collapse" id="results4" data-parent="resultsshort4">
+                        <div id="info4"></div>
+                        <span class="row">
+                                
+                                    <span class="col-sm">
+                                        <div id="city4"></div>
+                                    </span>
+                                    <span class="col-sm">                           
+                                        <div id="country4"></div>
+                                        <div id="curve_chart-4"></div>
+                                        <div id="piechart4"></div>
+                                    </span>
+                        </span>
+                        <span class="row">
+                                    <span class="col-sm">
+
+                                        <!-- <div class="table-sm">
+                                            <table class="table-sm">
+                                                <thead>
+                                                    <tr>
+                                                        <th scope="col">Monat</th>
+                                                        <th scope="col">Jan</th>
+                                                        <th scope="col">Feb</th>
+                                                        <th scope="col">Mär</th>
+                                                        <th scope="col">Apr</th>
+                                                        <th scope="col">Mai</th>
+                                                        <th scope="col">Jun</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr>
+                                                        <th scope="row">Min.C°</th>
+                                                        <td><div id="JanMin4"></div></td>
+                                                        <td><div id="FebMin4"></div></td>
+                                                        <td><div id="MarMin4"></div></td>
+                                                        <td><div id="AprMin4"></div></td>
+                                                        <td><div id="MayMin4"></div></td>
+                                                        <td><div id="JunMin4"></div></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th scope="row">Max.C°</th>
+                                                        <td><div id="JanMax4"></div></td>
+                                                        <td><div id="FebMax4"></div></td>
+                                                        <td><div id="MarMax4"></div></td>
+                                                        <td><div id="AprMax4"></div></td>
+                                                        <td><div id="MayMax4"></div></td>
+                                                        <td><div id="JunMax4"></div></td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div> -->
+                                    </span>
+                            
+                                    <span class="col-sm">
+                                        <!-- <div class="table-sm">
+                                            <table class="table-sm">
+                                                <thead>
+                                                    <tr>
+                                                        <th scope="col">Monat</th>
+                                                        <th scope="col">Jul</th>
+                                                        <th scope="col">Aug</th>
+                                                        <th scope="col">Sep</th>
+                                                        <th scope="col">Okt</th>
+                                                        <th scope="col">Nov</th>
+                                                        <th scope="col">Dez</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr>
+                                                        <th scope="row">Min.C°</th>
+                                                        <td><div id="JulMin4"></div></td>
+                                                        <td><div id="AugMin4"></div></td>
+                                                        <td><div id="SepMin4"></div></td>
+                                                        <td><div id="OctMin4"></div></td>
+                                                        <td><div id="NovMin4"></div></td>
+                                                        <td><div id="DecMin4"></div></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th scope="row">Max.C°</th>
+                                                        <td><div id="JulMax4"></div></td>
+                                                        <td><div id="AugMax4"></div></td>
+                                                        <td><div id="SepMax4"></div></td>
+                                                        <td><div id="OctMax4"></div></td>
+                                                        <td><div id="NovMax4"></div></td>
+                                                        <td><div id="DecMax4"></div></td>                               
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div> -->
+                                    </span>
+                        </span>
+                    </div>
+                </div>
+                </div>
+            </div>
+
+            <div class="col-sm">
+                <div class="card" class="resultcard" id="resultcard5" data-toggle="collapse" data-target="#results5" aria-expanded="false" aria-controls="results5">
+                    <span class="row">
+                        <span class="col-sm">
+                            <div id="imagelink5">
+                            </div>
+                        </span>
+                        <span class="col-sm">
+                            <h5 class="card-title" id="top5">
+                            </h5>
+                        </span>
+                    </span>         
+                <div class="container">
+                    <div class="collapse" id="results5" data-parent="resultsshort5">
+                        <div id="info5"></div>
+                        <span class="row">
+                                
+                                    <span class="col-sm">
+                                        <div id="city5"></div>
+                                    </span>
+                                    <span class="col-sm">                           
+                                        <div id="country5"></div>
+                                        <div id="curve_chart-5"></div>
+                                        <div id="piechart5"></div>
+                                    </span>
+                        </span>
+                        <span class="row">
+                                    <span class="col-sm">
+                                        <!-- <div class="table-sm">
+                                            <table class="table-sm">
+                                                <thead>
+                                                    <tr>
+                                                        <th scope="col">Monat</th>
+                                                        <th scope="col">Jan</th>
+                                                        <th scope="col">Feb</th>
+                                                        <th scope="col">Mär</th>
+                                                        <th scope="col">Apr</th>
+                                                        <th scope="col">Mai</th>
+                                                        <th scope="col">Jun</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr>
+                                                        <th scope="row">Min.C°</th>
+                                                        <td><div id="JanMin5"></div></td>
+                                                        <td><div id="FebMin5"></div></td>
+                                                        <td><div id="MarMin5"></div></td>
+                                                        <td><div id="AprMin5"></div></td>
+                                                        <td><div id="MayMin5"></div></td>
+                                                        <td><div id="JunMin5"></div></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th scope="row">Max.C°</th>
+                                                        <td><div id="JanMax5"></div></td>
+                                                        <td><div id="FebMax5"></div></td>
+                                                        <td><div id="MarMax5"></div></td>
+                                                        <td><div id="AprMax5"></div></td>
+                                                        <td><div id="MayMax5"></div></td>
+                                                        <td><div id="JunMax5"></div></td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div> -->
+                                    </span>
+                            
+                                    <span class="col-sm">
+                                        <!-- <div class="table-sm">
+                                            <table class="table-sm">
+                                                <thead>
+                                                    <tr>
+                                                        <th scope="col">Monat</th>
+                                                        <th scope="col">Jul</th>
+                                                        <th scope="col">Aug</th>
+                                                        <th scope="col">Sep</th>
+                                                        <th scope="col">Okt</th>
+                                                        <th scope="col">Nov</th>
+                                                        <th scope="col">Dez</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr>
+                                                        <th scope="row">Min.C°</th>
+                                                        <td><div id="JulMin5"></div></td>
+                                                        <td><div id="AugMin5"></div></td>
+                                                        <td><div id="SepMin5"></div></td>
+                                                        <td><div id="OctMin5"></div></td>
+                                                        <td><div id="NovMin5"></div></td>
+                                                        <td><div id="DecMin5"></div></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th scope="row">Max.C°</th>
+                                                        <td><div id="JulMax5"></div></td>
+                                                        <td><div id="AugMax5"></div></td>
+                                                        <td><div id="SepMax5"></div></td>
+                                                        <td><div id="OctMax5"></div></td>
+                                                        <td><div id="NovMax5"></div></td>
+                                                        <td><div id="DecMax5"></div></td>                               
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div> -->
+                                    </span>
+                        </span>
+                    </div>
+                </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-sm">
+                <div class="card" class="resultcard" id="resultcard6" data-toggle="collapse" data-target="#results6" aria-expanded="false" aria-controls="results6">
+                    <span class="row">
+                        <span class="col-sm">
+                            <div id="imagelink6">
+                            </div>
+                        </span>
+                        <span class="col-sm">
+                            <h5 class="card-title" id="top6">
+                            </h5>
+                        </span>
+                    </span>         
+                <div class="container">
+                    <div class="collapse" id="results6" data-parent="resultsshort6">
+                        <div id="info6"></div>
+                        <span class="row">
+                                
+                                    <span class="col-sm">
+                                        <div id="city6"></div>
+                                    </span>
+                                    <span class="col-sm">                           
+                                        <div id="country6"></div>
+                                        <div id="curve_chart-6"></div>
+                                        <div id="piechart6"></div>
+                                    </span>
+                        </span>
+                        <span class="row">
+                                    <span class="col-sm">
+                                        <!-- <div class="table-sm">
+                                            <table class="table-sm">
+                                                <thead>
+                                                    <tr>
+                                                        <th scope="col">Monat</th>
+                                                        <th scope="col">Jan</th>
+                                                        <th scope="col">Feb</th>
+                                                        <th scope="col">Mär</th>
+                                                        <th scope="col">Apr</th>
+                                                        <th scope="col">Mai</th>
+                                                        <th scope="col">Jun</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr>
+                                                        <th scope="row">Min.C°</th>
+                                                        <td><div id="JanMin6"></div></td>
+                                                        <td><div id="FebMin6"></div></td>
+                                                        <td><div id="MarMin6"></div></td>
+                                                        <td><div id="AprMin6"></div></td>
+                                                        <td><div id="MayMin6"></div></td>
+                                                        <td><div id="JunMin6"></div></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th scope="row">Max.C°</th>
+                                                        <td><div id="JanMax6"></div></td>
+                                                        <td><div id="FebMax6"></div></td>
+                                                        <td><div id="MarMax6"></div></td>
+                                                        <td><div id="AprMax6"></div></td>
+                                                        <td><div id="MayMax6"></div></td>
+                                                        <td><div id="JunMax6"></div></td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div> -->
+                                    </span>
+                            
+                                    <span class="col-sm">
+                                        <!-- <div class="table-sm">
+                                            <table class="table-sm">
+                                                <thead>
+                                                    <tr>
+                                                        <th scope="col">Monat</th>
+                                                        <th scope="col">Jul</th>
+                                                        <th scope="col">Aug</th>
+                                                        <th scope="col">Sep</th>
+                                                        <th scope="col">Okt</th>
+                                                        <th scope="col">Nov</th>
+                                                        <th scope="col">Dez</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr>
+                                                        <th scope="row">Min.C°</th>
+                                                        <td><div id="JulMin6"></div></td>
+                                                        <td><div id="AugMin6"></div></td>
+                                                        <td><div id="SepMin6"></div></td>
+                                                        <td><div id="OctMin6"></div></td>
+                                                        <td><div id="NovMin6"></div></td>
+                                                        <td><div id="DecMin6"></div></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th scope="row">Max.C°</th>
+                                                        <td><div id="JulMax6"></div></td>
+                                                        <td><div id="AugMax6"></div></td>
+                                                        <td><div id="SepMax6"></div></td>
+                                                        <td><div id="OctMax6"></div></td>
+                                                        <td><div id="NovMax6"></div></td>
+                                                        <td><div id="DecMax6"></div></td>                               
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div> -->
+                                    </span>
+                        </span>
+                    </div>
+                </div>
+                </div>
+            </div>
+
+            <div class="col-sm">
+                <div class="card" class="resultcard" id="resultcard7" data-toggle="collapse" data-target="#results7" aria-expanded="false" aria-controls="results7">
+                    <span class="row">
+                        <span class="col-sm">
+                            <div id="imagelink7">
+                            </div>
+                        </span>
+                        <span class="col-sm">
+                            <h5 class="card-title" id="top7">
+                            </h5>
+                        </span>
+                    </span>         
+                <div class="container">
+                    <div class="collapse" id="results7" data-parent="resultsshort7">
+                        <div id="info7"></div>
+                        <span class="row">
+                                
+                                    <span class="col-sm">
+                                        <div id="city7"></div>
+                                    </span>
+                                    <span class="col-sm">                           
+                                        <div id="country7"></div>
+                                        <div id="curve_chart-7"></div>
+                                        <div id="piechart7"></div>
+                                    </span>
+                        </span>
+                        <span class="row">
+                                    <span class="col-sm">
+                                        <!-- <div class="table-sm">
+                                            <table class="table-sm">
+                                                <thead>
+                                                    <tr>
+                                                        <th scope="col">Monat</th>
+                                                        <th scope="col">Jan</th>
+                                                        <th scope="col">Feb</th>
+                                                        <th scope="col">Mär</th>
+                                                        <th scope="col">Apr</th>
+                                                        <th scope="col">Mai</th>
+                                                        <th scope="col">Jun</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr>
+                                                        <th scope="row">Min.C°</th>
+                                                        <td><div id="JanMin7"></div></td>
+                                                        <td><div id="FebMin7"></div></td>
+                                                        <td><div id="MarMin7"></div></td>
+                                                        <td><div id="AprMin7"></div></td>
+                                                        <td><div id="MayMin7"></div></td>
+                                                        <td><div id="JunMin7"></div></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th scope="row">Max.C°</th>
+                                                        <td><div id="JanMax7"></div></td>
+                                                        <td><div id="FebMax7"></div></td>
+                                                        <td><div id="MarMax7"></div></td>
+                                                        <td><div id="AprMax7"></div></td>
+                                                        <td><div id="MayMax7"></div></td>
+                                                        <td><div id="JunMax7"></div></td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div> -->
+                                    </span>
+                            
+                                    <span class="col-sm">
+                                        <!-- <div class="table-sm">
+                                            <table class="table-sm">
+                                                <thead>
+                                                    <tr>
+                                                        <th scope="col">Monat</th>
+                                                        <th scope="col">Jul</th>
+                                                        <th scope="col">Aug</th>
+                                                        <th scope="col">Sep</th>
+                                                        <th scope="col">Okt</th>
+                                                        <th scope="col">Nov</th>
+                                                        <th scope="col">Dez</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr>
+                                                        <th scope="row">Min.C°</th>
+                                                        <td><div id="JulMin7"></div></td>
+                                                        <td><div id="AugMin7"></div></td>
+                                                        <td><div id="SepMin7"></div></td>
+                                                        <td><div id="OctMin7"></div></td>
+                                                        <td><div id="NovMin7"></div></td>
+                                                        <td><div id="DecMin7"></div></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th scope="row">Max.C°</th>
+                                                        <td><div id="JulMax7"></div></td>
+                                                        <td><div id="AugMax7"></div></td>
+                                                        <td><div id="SepMax7"></div></td>
+                                                        <td><div id="OctMax7"></div></td>
+                                                        <td><div id="NovMax7"></div></td>
+                                                        <td><div id="DecMax7"></div></td>                               
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div> -->
+                                    </span>
+                        </span>
+                    </div>
+                </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-sm">
+                <div class="card" class="resultcard" id="resultcard8" data-toggle="collapse" data-target="#results8" aria-expanded="false" aria-controls="results8">
+                    <span class="row">
+                        <span class="col-sm">
+                            <div id="imagelink8">
+                            </div>
+                        </span>
+                        <span class="col-sm">
+                            <h5 class="card-title" id="top8">
+                            </h5>
+                        </span>
+                    </span>         
+                <div class="container">
+                    <div class="collapse" id="results8" data-parent="resultsshort8">
+                        <div id="info8"></div>
+                        <span class="row">
+                                
+                                    <span class="col-sm">
+                                        <div id="city8"></div>
+                                    </span>
+                                    <span class="col-sm">                           
+                                        <div id="country8"></div>
+                                        <div id="curve_chart-8"></div>
+                                        <div id="piechart8"></div>
+                                    </span>
+                        </span>
+                        <span class="row">
+                                    <span class="col-sm">
+
+                                        <!-- <div class="table-sm">
+                                            <table class="table-sm">
+                                                <thead>
+                                                    <tr>
+                                                        <th scope="col">Monat</th>
+                                                        <th scope="col">Jan</th>
+                                                        <th scope="col">Feb</th>
+                                                        <th scope="col">Mär</th>
+                                                        <th scope="col">Apr</th>
+                                                        <th scope="col">Mai</th>
+                                                        <th scope="col">Jun</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr>
+                                                        <th scope="row">Min.C°</th>
+                                                        <td><div id="JanMin8"></div></td>
+                                                        <td><div id="FebMin8"></div></td>
+                                                        <td><div id="MarMin8"></div></td>
+                                                        <td><div id="AprMin8"></div></td>
+                                                        <td><div id="MayMin8"></div></td>
+                                                        <td><div id="JunMin8"></div></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th scope="row">Max.C°</th>
+                                                        <td><div id="JanMax8"></div></td>
+                                                        <td><div id="FebMax8"></div></td>
+                                                        <td><div id="MarMax8"></div></td>
+                                                        <td><div id="AprMax8"></div></td>
+                                                        <td><div id="MayMax8"></div></td>
+                                                        <td><div id="JunMax8"></div></td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div> -->
+                                    </span>
+                            
+                                    <span class="col-sm">
+                                        <!-- <div class="table-sm">
+                                            <table class="table-sm">
+                                                <thead>
+                                                    <tr>
+                                                        <th scope="col">Monat</th>
+                                                        <th scope="col">Jul</th>
+                                                        <th scope="col">Aug</th>
+                                                        <th scope="col">Sep</th>
+                                                        <th scope="col">Okt</th>
+                                                        <th scope="col">Nov</th>
+                                                        <th scope="col">Dez</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr>
+                                                        <th scope="row">Min.C°</th>
+                                                        <td><div id="JulMin8"></div></td>
+                                                        <td><div id="AugMin8"></div></td>
+                                                        <td><div id="SepMin8"></div></td>
+                                                        <td><div id="OctMin8"></div></td>
+                                                        <td><div id="NovMin8"></div></td>
+                                                        <td><div id="DecMin8"></div></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th scope="row">Max.C°</th>
+                                                        <td><div id="JulMax8"></div></td>
+                                                        <td><div id="AugMax8"></div></td>
+                                                        <td><div id="SepMax8"></div></td>
+                                                        <td><div id="OctMax8"></div></td>
+                                                        <td><div id="NovMax8"></div></td>
+                                                        <td><div id="DecMax8"></div></td>                               
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div> -->
+                                    </span>
+                        </span>
+                    </div>
+                </div>
+                </div>
+            </div>
+
+            <div class="col-sm">
+                <div class="card" class="resultcard" id="resultcard9" data-toggle="collapse" data-target="#results9" aria-expanded="false" aria-controls="results9">
+                    <span class="row">
+                        <span class="col-sm">
+                            <div id="imagelink9">
+                            </div>
+                        </span>
+                        <span class="col-sm">
+                            <h5 class="card-title" id="top9">
+                            </h5>
+                        </span>
+                    </span>         
+                <div class="container">
+                    <div class="collapse" id="results9" data-parent="resultsshort9">
+                        <div id="info9"></div>
+                        <span class="row">
+                                
+                                    <span class="col-sm">
+                                        <div id="city9"></div>
+                                    </span>
+                                    <span class="col-sm">                           
+                                        <div id="country9"></div>
+                                        <div id="curve_chart-9"></div>
+                                        <div id="piechart9"></div>
+                                    </span>
+                        </span>
+                        <span class="row">
+                                    <span class="col-sm">
+                                        <!-- <div class="table-sm">
+                                            <table class="table-sm">
+                                                <thead>
+                                                    <tr>
+                                                        <th scope="col">Monat</th>
+                                                        <th scope="col">Jan</th>
+                                                        <th scope="col">Feb</th>
+                                                        <th scope="col">Mär</th>
+                                                        <th scope="col">Apr</th>
+                                                        <th scope="col">Mai</th>
+                                                        <th scope="col">Jun</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr>
+                                                        <th scope="row">Min.C°</th>
+                                                        <td><div id="JanMin9"></div></td>
+                                                        <td><div id="FebMin9"></div></td>
+                                                        <td><div id="MarMin9"></div></td>
+                                                        <td><div id="AprMin9"></div></td>
+                                                        <td><div id="MayMin9"></div></td>
+                                                        <td><div id="JunMin9"></div></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th scope="row">Max.C°</th>
+                                                        <td><div id="JanMax9"></div></td>
+                                                        <td><div id="FebMax9"></div></td>
+                                                        <td><div id="MarMax9"></div></td>
+                                                        <td><div id="AprMax9"></div></td>
+                                                        <td><div id="MayMax9"></div></td>
+                                                        <td><div id="JunMax9"></div></td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div> -->
+                                    </span>
+                            
+                                    <span class="col-sm">
+                                        <!-- <div class="table-sm">
+                                            <table class="table-sm">
+                                                <thead>
+                                                    <tr>
+                                                        <th scope="col">Monat</th>
+                                                        <th scope="col">Jul</th>
+                                                        <th scope="col">Aug</th>
+                                                        <th scope="col">Sep</th>
+                                                        <th scope="col">Okt</th>
+                                                        <th scope="col">Nov</th>
+                                                        <th scope="col">Dez</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr>
+                                                        <th scope="row">Min.C°</th>
+                                                        <td><div id="JulMin9"></div></td>
+                                                        <td><div id="AugMin9"></div></td>
+                                                        <td><div id="SepMin9"></div></td>
+                                                        <td><div id="OctMin9"></div></td>
+                                                        <td><div id="NovMin9"></div></td>
+                                                        <td><div id="DecMin9"></div></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th scope="row">Max.C°</th>
+                                                        <td><div id="JulMax9"></div></td>
+                                                        <td><div id="AugMax9"></div></td>
+                                                        <td><div id="SepMax9"></div></td>
+                                                        <td><div id="OctMax9"></div></td>
+                                                        <td><div id="NovMax9"></div></td>
+                                                        <td><div id="DecMax9"></div></td>                               
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div> -->
+                                    </span>
+                        </span>
+                    </div>
+                </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="wrapper" id="less1" style="left:0rem;margin-left: 10px;">
+            <div class="btn" onclick="goBack();" class="goback">Vorherige Ergebnisse</div>
+        </div>
+
+        <div class="wrapper" id="more1" style="float: right;margin-right: 10px;">
+            <div class="btn" onclick="loadMore();" class="loadmore">Weitere Ergebnisse</div>
+        </div>
+
+
+        <div class="row">
+            <div class="col-sm">
+                <div class="card" class="resultcard" id="resultcard10" data-toggle="collapse" data-target="#results10" aria-expanded="false" aria-controls="results10">
+                    <span class="row">
+                        <span class="col-sm">
+                            <div id="imagelink10">
+                            </div>
+                        </span>
+                        <span class="col-sm">
+                            <h5 class="card-title" id="top10">
+                            </h5>
+                        </span>
+                    </span>         
+                <div class="container">
+                    <div class="collapse" id="results10" data-parent="resultsshort10">
+                        <div id="info10"></div>
+                        <span class="row">
+                                
+                                    <span class="col-sm">
+                                        <div id="city10"></div>
+                                    </span>
+                                    <span class="col-sm">                           
+                                        <div id="country10"></div>
+                                        <div id="curve_chart-10"></div>
+                                        <div id="piechart10"></div>
+                                    </span>
+                        </span>
+                        <span class="row">
+                                    <span class="col-sm">
+
+                                        <!-- <div class="table-sm">
+                                            <table class="table-sm">
+                                                <thead>
+                                                    <tr>
+                                                        <th scope="col">Monat</th>
+                                                        <th scope="col">Jan</th>
+                                                        <th scope="col">Feb</th>
+                                                        <th scope="col">Mär</th>
+                                                        <th scope="col">Apr</th>
+                                                        <th scope="col">Mai</th>
+                                                        <th scope="col">Jun</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr>
+                                                        <th scope="row">Min.C°</th>
+                                                        <td><div id="JanMin10"></div></td>
+                                                        <td><div id="FebMin10"></div></td>
+                                                        <td><div id="MarMin10"></div></td>
+                                                        <td><div id="AprMin10"></div></td>
+                                                        <td><div id="MayMin10"></div></td>
+                                                        <td><div id="JunMin10"></div></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th scope="row">Max.C°</th>
+                                                        <td><div id="JanMax10"></div></td>
+                                                        <td><div id="FebMax10"></div></td>
+                                                        <td><div id="MarMax10"></div></td>
+                                                        <td><div id="AprMax10"></div></td>
+                                                        <td><div id="MayMax10"></div></td>
+                                                        <td><div id="JunMax10"></div></td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div> -->
+                                    </span>
+                            
+                                    <span class="col-sm">
+                                        <!-- <div class="table-sm">
+                                            <table class="table-sm">
+                                                <thead>
+                                                    <tr>
+                                                        <th scope="col">Monat</th>
+                                                        <th scope="col">Jul</th>
+                                                        <th scope="col">Aug</th>
+                                                        <th scope="col">Sep</th>
+                                                        <th scope="col">Okt</th>
+                                                        <th scope="col">Nov</th>
+                                                        <th scope="col">Dez</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr>
+                                                        <th scope="row">Min.C°</th>
+                                                        <td><div id="JulMin10"></div></td>
+                                                        <td><div id="AugMin10"></div></td>
+                                                        <td><div id="SepMin10"></div></td>
+                                                        <td><div id="OctMin10"></div></td>
+                                                        <td><div id="NovMin10"></div></td>
+                                                        <td><div id="DecMin10"></div></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th scope="row">Max.C°</th>
+                                                        <td><div id="JulMax10"></div></td>
+                                                        <td><div id="AugMax10"></div></td>
+                                                        <td><div id="SepMax10"></div></td>
+                                                        <td><div id="OctMax10"></div></td>
+                                                        <td><div id="NovMax10"></div></td>
+                                                        <td><div id="DecMax10"></div></td>                               
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div> -->
+                                    </span>
+                        </span>
+                    </div>
+                </div>
+                </div>
+            </div>
+
+            <div class="col-sm">
+                <div class="card" class="resultcard" id="resultcard11" data-toggle="collapse" data-target="#results11" aria-expanded="false" aria-controls="results11">
+                    <span class="row">
+                        <span class="col-sm">
+                            <div id="imagelink11">
+                            </div>
+                        </span>
+                        <span class="col-sm">
+                            <h5 class="card-title" id="top11">
+                            </h5>
+                        </span>
+                    </span>         
+                <div class="container">
+                    <div class="collapse" id="results11" data-parent="resultsshort11">
+                        <div id="info11"></div>
+                        <span class="row">
+                                
+                                    <span class="col-sm">
+                                        <div id="city11"></div>
+                                    </span>
+                                    <span class="col-sm">                           
+                                        <div id="country11"></div>
+                                        <div id="curve_chart-11"></div>
+                                        <div id="piechart11"></div>
+                                    </span>
+                        </span>
+                        <span class="row">
+                                    <span class="col-sm">
+                                        <!-- <div class="table-sm">
+                                            <table class="table-sm">
+                                                <thead>
+                                                    <tr>
+                                                        <th scope="col">Monat</th>
+                                                        <th scope="col">Jan</th>
+                                                        <th scope="col">Feb</th>
+                                                        <th scope="col">Mär</th>
+                                                        <th scope="col">Apr</th>
+                                                        <th scope="col">Mai</th>
+                                                        <th scope="col">Jun</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr>
+                                                        <th scope="row">Min.C°</th>
+                                                        <td><div id="JanMin11"></div></td>
+                                                        <td><div id="FebMin11"></div></td>
+                                                        <td><div id="MarMin11"></div></td>
+                                                        <td><div id="AprMin11"></div></td>
+                                                        <td><div id="MayMin11"></div></td>
+                                                        <td><div id="JunMin11"></div></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th scope="row">Max.C°</th>
+                                                        <td><div id="JanMax11"></div></td>
+                                                        <td><div id="FebMax11"></div></td>
+                                                        <td><div id="MarMax11"></div></td>
+                                                        <td><div id="AprMax11"></div></td>
+                                                        <td><div id="MayMax11"></div></td>
+                                                        <td><div id="JunMax11"></div></td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div> -->
+                                    </span>
+                            
+                                    <span class="col-sm">
+                                        <!-- <div class="table-sm">
+                                            <table class="table-sm">
+                                                <thead>
+                                                    <tr>
+                                                        <th scope="col">Monat</th>
+                                                        <th scope="col">Jul</th>
+                                                        <th scope="col">Aug</th>
+                                                        <th scope="col">Sep</th>
+                                                        <th scope="col">Okt</th>
+                                                        <th scope="col">Nov</th>
+                                                        <th scope="col">Dez</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr>
+                                                        <th scope="row">Min.C°</th>
+                                                        <td><div id="JulMin11"></div></td>
+                                                        <td><div id="AugMin11"></div></td>
+                                                        <td><div id="SepMin11"></div></td>
+                                                        <td><div id="OctMin11"></div></td>
+                                                        <td><div id="NovMin11"></div></td>
+                                                        <td><div id="DecMin11"></div></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th scope="row">Max.C°</th>
+                                                        <td><div id="JulMax11"></div></td>
+                                                        <td><div id="AugMax11"></div></td>
+                                                        <td><div id="SepMax11"></div></td>
+                                                        <td><div id="OctMax11"></div></td>
+                                                        <td><div id="NovMax11"></div></td>
+                                                        <td><div id="DecMax11"></div></td>                               
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div> -->
+                                    </span>
+                        </span>
+                    </div>
+                </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-sm">
+                <div class="card" class="resultcard" id="resultcard12" data-toggle="collapse" data-target="#results12" aria-expanded="false" aria-controls="results12">
+                    <span class="row">
+                        <span class="col-sm">
+                            <div id="imagelink12">
+                            </div>
+                        </span>
+                        <span class="col-sm">
+                            <h5 class="card-title" id="top12">
+                            </h5>
+                        </span>
+                    </span>         
+                <div class="container">
+                    <div class="collapse" id="results12" data-parent="resultsshort12">
+                        <div id="info12"></div>
+                        <span class="row">
+                                
+                                    <span class="col-sm">
+                                        <div id="city12"></div>
+                                    </span>
+                                    <span class="col-sm">                           
+                                        <div id="country12"></div>
+                                        <div id="curve_chart-12"></div>
+                                        <div id="piechart12"></div>
+                                    </span>
+                        </span>
+                        <span class="row">
+                                    <span class="col-sm">
+
+                                        <!-- <div class="table-sm">
+                                            <table class="table-sm">
+                                                <thead>
+                                                    <tr>
+                                                        <th scope="col">Monat</th>
+                                                        <th scope="col">Jan</th>
+                                                        <th scope="col">Feb</th>
+                                                        <th scope="col">Mär</th>
+                                                        <th scope="col">Apr</th>
+                                                        <th scope="col">Mai</th>
+                                                        <th scope="col">Jun</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr>
+                                                        <th scope="row">Min.C°</th>
+                                                        <td><div id="JanMin12"></div></td>
+                                                        <td><div id="FebMin12"></div></td>
+                                                        <td><div id="MarMin12"></div></td>
+                                                        <td><div id="AprMin12"></div></td>
+                                                        <td><div id="MayMin12"></div></td>
+                                                        <td><div id="JunMin12"></div></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th scope="row">Max.C°</th>
+                                                        <td><div id="JanMax12"></div></td>
+                                                        <td><div id="FebMax12"></div></td>
+                                                        <td><div id="MarMax12"></div></td>
+                                                        <td><div id="AprMax12"></div></td>
+                                                        <td><div id="MayMax12"></div></td>
+                                                        <td><div id="JunMax12"></div></td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div> -->
+                                    </span>
+                            
+                                    <span class="col-sm">
+                                        <!-- <div class="table-sm">
+                                            <table class="table-sm">
+                                                <thead>
+                                                    <tr>
+                                                        <th scope="col">Monat</th>
+                                                        <th scope="col">Jul</th>
+                                                        <th scope="col">Aug</th>
+                                                        <th scope="col">Sep</th>
+                                                        <th scope="col">Okt</th>
+                                                        <th scope="col">Nov</th>
+                                                        <th scope="col">Dez</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr>
+                                                        <th scope="row">Min.C°</th>
+                                                        <td><div id="JulMin12"></div></td>
+                                                        <td><div id="AugMin12"></div></td>
+                                                        <td><div id="SepMin12"></div></td>
+                                                        <td><div id="OctMin12"></div></td>
+                                                        <td><div id="NovMin12"></div></td>
+                                                        <td><div id="DecMin12"></div></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th scope="row">Max.C°</th>
+                                                        <td><div id="JulMax12"></div></td>
+                                                        <td><div id="AugMax12"></div></td>
+                                                        <td><div id="SepMax12"></div></td>
+                                                        <td><div id="OctMax12"></div></td>
+                                                        <td><div id="NovMax12"></div></td>
+                                                        <td><div id="DecMax12"></div></td>                               
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div> -->
+                                    </span>
+                        </span>
+                    </div>
+                </div>
+                </div>
+            </div>
+
+            <div class="col-sm">
+                <div class="card" class="resultcard" id="resultcard13" data-toggle="collapse" data-target="#results13" aria-expanded="false" aria-controls="results13">
+                    <span class="row">
+                        <span class="col-sm">
+                            <div id="imagelink13">
+                            </div>
+                        </span>
+                        <span class="col-sm">
+                            <h5 class="card-title" id="top13">
+                            </h5>
+                        </span>
+                    </span>         
+                <div class="container">
+                    <div class="collapse" id="results13" data-parent="resultsshort13">
+                        <div id="info13"></div>
+                        <span class="row">
+                                
+                                    <span class="col-sm">
+                                        <div id="city13"></div>
+                                    </span>
+                                    <span class="col-sm">                           
+                                        <div id="country13"></div>
+                                        <div id="curve_chart-13"></div>
+                                        <div id="piechart13"></div>
+                                    </span>
+                        </span>
+                        <span class="row">
+                                    <span class="col-sm">
+                                        <!-- <div class="table-sm">
+                                            <table class="table-sm">
+                                                <thead>
+                                                    <tr>
+                                                        <th scope="col">Monat</th>
+                                                        <th scope="col">Jan</th>
+                                                        <th scope="col">Feb</th>
+                                                        <th scope="col">Mär</th>
+                                                        <th scope="col">Apr</th>
+                                                        <th scope="col">Mai</th>
+                                                        <th scope="col">Jun</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr>
+                                                        <th scope="row">Min.C°</th>
+                                                        <td><div id="JanMin13"></div></td>
+                                                        <td><div id="FebMin13"></div></td>
+                                                        <td><div id="MarMin13"></div></td>
+                                                        <td><div id="AprMin13"></div></td>
+                                                        <td><div id="MayMin13"></div></td>
+                                                        <td><div id="JunMin13"></div></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th scope="row">Max.C°</th>
+                                                        <td><div id="JanMax13"></div></td>
+                                                        <td><div id="FebMax13"></div></td>
+                                                        <td><div id="MarMax13"></div></td>
+                                                        <td><div id="AprMax13"></div></td>
+                                                        <td><div id="MayMax13"></div></td>
+                                                        <td><div id="JunMax13"></div></td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div> -->
+                                    </span>
+                            
+                                    <span class="col-sm">
+                                        <!-- <div class="table-sm">
+                                            <table class="table-sm">
+                                                <thead>
+                                                    <tr>
+                                                        <th scope="col">Monat</th>
+                                                        <th scope="col">Jul</th>
+                                                        <th scope="col">Aug</th>
+                                                        <th scope="col">Sep</th>
+                                                        <th scope="col">Okt</th>
+                                                        <th scope="col">Nov</th>
+                                                        <th scope="col">Dez</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr>
+                                                        <th scope="row">Min.C°</th>
+                                                        <td><div id="JulMin13"></div></td>
+                                                        <td><div id="AugMin13"></div></td>
+                                                        <td><div id="SepMin13"></div></td>
+                                                        <td><div id="OctMin13"></div></td>
+                                                        <td><div id="NovMin13"></div></td>
+                                                        <td><div id="DecMin13"></div></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th scope="row">Max.C°</th>
+                                                        <td><div id="JulMax13"></div></td>
+                                                        <td><div id="AugMax13"></div></td>
+                                                        <td><div id="SepMax13"></div></td>
+                                                        <td><div id="OctMax13"></div></td>
+                                                        <td><div id="NovMax13"></div></td>
+                                                        <td><div id="DecMax13"></div></td>                               
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div> -->
+                                    </span>
+                        </span>
+                    </div>
+                </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-sm">
+                <div class="card" class="resultcard" id="resultcard14" data-toggle="collapse" data-target="#results14" aria-expanded="false" aria-controls="results14">
+                    <span class="row">
+                        <span class="col-sm">
+                            <div id="imagelink14">
+                            </div>
+                        </span>
+                        <span class="col-sm">
+                            <h5 class="card-title" id="top14">
+                            </h5>
+                        </span>
+                    </span>         
+                <div class="container">
+                    <div class="collapse" id="results14" data-parent="resultsshort14">
+                        <div id="info14"></div>
+                        <span class="row">
+                                
+                                    <span class="col-sm">
+                                        <div id="city14"></div>
+                                    </span>
+                                    <span class="col-sm">                           
+                                        <div id="country14"></div>
+                                        <div id="curve_chart-14"></div>
+                                        <div id="piechart14"></div>
+                                    </span>
+                        </span>
+                        <span class="row">
+                                    <span class="col-sm">
+
+                                        <!-- <div class="table-sm">
+                                            <table class="table-sm">
+                                                <thead>
+                                                    <tr>
+                                                        <th scope="col">Monat</th>
+                                                        <th scope="col">Jan</th>
+                                                        <th scope="col">Feb</th>
+                                                        <th scope="col">Mär</th>
+                                                        <th scope="col">Apr</th>
+                                                        <th scope="col">Mai</th>
+                                                        <th scope="col">Jun</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr>
+                                                        <th scope="row">Min.C°</th>
+                                                        <td><div id="JanMin14"></div></td>
+                                                        <td><div id="FebMin14"></div></td>
+                                                        <td><div id="MarMin14"></div></td>
+                                                        <td><div id="AprMin14"></div></td>
+                                                        <td><div id="MayMin14"></div></td>
+                                                        <td><div id="JunMin14"></div></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th scope="row">Max.C°</th>
+                                                        <td><div id="JanMax14"></div></td>
+                                                        <td><div id="FebMax14"></div></td>
+                                                        <td><div id="MarMax14"></div></td>
+                                                        <td><div id="AprMax14"></div></td>
+                                                        <td><div id="MayMax14"></div></td>
+                                                        <td><div id="JunMax14"></div></td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div> -->
+                                    </span>
+                            
+                                    <span class="col-sm">
+                                        <!-- <div class="table-sm">
+                                            <table class="table-sm">
+                                                <thead>
+                                                    <tr>
+                                                        <th scope="col">Monat</th>
+                                                        <th scope="col">Jul</th>
+                                                        <th scope="col">Aug</th>
+                                                        <th scope="col">Sep</th>
+                                                        <th scope="col">Okt</th>
+                                                        <th scope="col">Nov</th>
+                                                        <th scope="col">Dez</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr>
+                                                        <th scope="row">Min.C°</th>
+                                                        <td><div id="JulMin14"></div></td>
+                                                        <td><div id="AugMin14"></div></td>
+                                                        <td><div id="SepMin14"></div></td>
+                                                        <td><div id="OctMin14"></div></td>
+                                                        <td><div id="NovMin14"></div></td>
+                                                        <td><div id="DecMin14"></div></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th scope="row">Max.C°</th>
+                                                        <td><div id="JulMax14"></div></td>
+                                                        <td><div id="AugMax14"></div></td>
+                                                        <td><div id="SepMax14"></div></td>
+                                                        <td><div id="OctMax14"></div></td>
+                                                        <td><div id="NovMax14"></div></td>
+                                                        <td><div id="DecMax14"></div></td>                               
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div> -->
+                                    </span>
+                        </span>
+                    </div>
+                </div>
+                </div>
+            </div>
+
+            <div class="col-sm">
+                <div class="card" class="resultcard" id="resultcard15" data-toggle="collapse" data-target="#results15" aria-expanded="false" aria-controls="results15">
+                    <span class="row">
+                        <span class="col-sm">
+                            <div id="imagelink15">
+                            </div>
+                        </span>
+                        <span class="col-sm">
+                            <h5 class="card-title" id="top15">
+                            </h5>
+                        </span>
+                    </span>         
+                <div class="container">
+                    <div class="collapse" id="results15" data-parent="resultsshort15">
+                        <div id="info15"></div>
+                        <span class="row">
+                                
+                                    <span class="col-sm">
+                                        <div id="city15"></div>
+                                    </span>
+                                    <span class="col-sm">                           
+                                        <div id="country15"></div>
+                                        <div id="curve_chart-15"></div>
+                                        <div id="piechart15"></div>
+                                    </span>
+                        </span>
+                        <span class="row">
+                                    <span class="col-sm">
+                                        <!-- <div class="table-sm">
+                                            <table class="table-sm">
+                                                <thead>
+                                                    <tr>
+                                                        <th scope="col">Monat</th>
+                                                        <th scope="col">Jan</th>
+                                                        <th scope="col">Feb</th>
+                                                        <th scope="col">Mär</th>
+                                                        <th scope="col">Apr</th>
+                                                        <th scope="col">Mai</th>
+                                                        <th scope="col">Jun</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr>
+                                                        <th scope="row">Min.C°</th>
+                                                        <td><div id="JanMin15"></div></td>
+                                                        <td><div id="FebMin15"></div></td>
+                                                        <td><div id="MarMin15"></div></td>
+                                                        <td><div id="AprMin15"></div></td>
+                                                        <td><div id="MayMin15"></div></td>
+                                                        <td><div id="JunMin15"></div></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th scope="row">Max.C°</th>
+                                                        <td><div id="JanMax15"></div></td>
+                                                        <td><div id="FebMax15"></div></td>
+                                                        <td><div id="MarMax15"></div></td>
+                                                        <td><div id="AprMax15"></div></td>
+                                                        <td><div id="MayMax15"></div></td>
+                                                        <td><div id="JunMax15"></div></td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div> -->
+                                    </span>
+                            
+                                    <span class="col-sm">
+                                        <!-- <div class="table-sm">
+                                            <table class="table-sm">
+                                                <thead>
+                                                    <tr>
+                                                        <th scope="col">Monat</th>
+                                                        <th scope="col">Jul</th>
+                                                        <th scope="col">Aug</th>
+                                                        <th scope="col">Sep</th>
+                                                        <th scope="col">Okt</th>
+                                                        <th scope="col">Nov</th>
+                                                        <th scope="col">Dez</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr>
+                                                        <th scope="row">Min.C°</th>
+                                                        <td><div id="JulMin15"></div></td>
+                                                        <td><div id="AugMin15"></div></td>
+                                                        <td><div id="SepMin15"></div></td>
+                                                        <td><div id="OctMin15"></div></td>
+                                                        <td><div id="NovMin15"></div></td>
+                                                        <td><div id="DecMin15"></div></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th scope="row">Max.C°</th>
+                                                        <td><div id="JulMax15"></div></td>
+                                                        <td><div id="AugMax15"></div></td>
+                                                        <td><div id="SepMax15"></div></td>
+                                                        <td><div id="OctMax15"></div></td>
+                                                        <td><div id="NovMax15"></div></td>
+                                                        <td><div id="DecMax15"></div></td>                               
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div> -->
+                                    </span>
+                        </span>
+                    </div>
+                </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-sm">
+                <div class="card" class="resultcard" id="resultcard16" data-toggle="collapse" data-target="#results16" aria-expanded="false" aria-controls="results16">
+                    <span class="row">
+                        <span class="col-sm">
+                            <div id="imagelink16">
+                            </div>
+                        </span>
+                        <span class="col-sm">
+                            <h5 class="card-title" id="top16">
+                            </h5>
+                        </span>
+                    </span>         
+                <div class="container">
+                    <div class="collapse" id="results16" data-parent="resultsshort16">
+                        <div id="info16"></div>
+                        <span class="row">
+                                
+                                    <span class="col-sm">
+                                        <div id="city16"></div>
+                                    </span>
+                                    <span class="col-sm">                           
+                                        <div id="country16"></div>
+                                        <div id="curve_chart-16"></div>
+                                        <div id="piechart16"></div>
+                                    </span>
+                        </span>
+                        <span class="row">
+                                    <span class="col-sm">
+
+                                        <!-- <div class="table-sm">
+                                            <table class="table-sm">
+                                                <thead>
+                                                    <tr>
+                                                        <th scope="col">Monat</th>
+                                                        <th scope="col">Jan</th>
+                                                        <th scope="col">Feb</th>
+                                                        <th scope="col">Mär</th>
+                                                        <th scope="col">Apr</th>
+                                                        <th scope="col">Mai</th>
+                                                        <th scope="col">Jun</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr>
+                                                        <th scope="row">Min.C°</th>
+                                                        <td><div id="JanMin16"></div></td>
+                                                        <td><div id="FebMin16"></div></td>
+                                                        <td><div id="MarMin16"></div></td>
+                                                        <td><div id="AprMin16"></div></td>
+                                                        <td><div id="MayMin16"></div></td>
+                                                        <td><div id="JunMin16"></div></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th scope="row">Max.C°</th>
+                                                        <td><div id="JanMax16"></div></td>
+                                                        <td><div id="FebMax16"></div></td>
+                                                        <td><div id="MarMax16"></div></td>
+                                                        <td><div id="AprMax16"></div></td>
+                                                        <td><div id="MayMax16"></div></td>
+                                                        <td><div id="JunMax16"></div></td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div> -->
+                                    </span>
+                            
+                                    <span class="col-sm">
+                                        <!-- <div class="table-sm">
+                                            <table class="table-sm">
+                                                <thead>
+                                                    <tr>
+                                                        <th scope="col">Monat</th>
+                                                        <th scope="col">Jul</th>
+                                                        <th scope="col">Aug</th>
+                                                        <th scope="col">Sep</th>
+                                                        <th scope="col">Okt</th>
+                                                        <th scope="col">Nov</th>
+                                                        <th scope="col">Dez</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr>
+                                                        <th scope="row">Min.C°</th>
+                                                        <td><div id="JulMin16"></div></td>
+                                                        <td><div id="AugMin16"></div></td>
+                                                        <td><div id="SepMin16"></div></td>
+                                                        <td><div id="OctMin16"></div></td>
+                                                        <td><div id="NovMin16"></div></td>
+                                                        <td><div id="DecMin16"></div></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th scope="row">Max.C°</th>
+                                                        <td><div id="JulMax16"></div></td>
+                                                        <td><div id="AugMax16"></div></td>
+                                                        <td><div id="SepMax16"></div></td>
+                                                        <td><div id="OctMax16"></div></td>
+                                                        <td><div id="NovMax16"></div></td>
+                                                        <td><div id="DecMax16"></div></td>                               
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div> -->
+                                    </span>
+                        </span>
+                    </div>
+                </div>
+                </div>
+            </div>
+
+            <div class="col-sm">
+                <div class="card" class="resultcard" id="resultcard17" data-toggle="collapse" data-target="#results17" aria-expanded="false" aria-controls="results17">
+                    <span class="row">
+                        <span class="col-sm">
+                            <div id="imagelink17">
+                            </div>
+                        </span>
+                        <span class="col-sm">
+                            <h5 class="card-title" id="top17">
+                            </h5>
+                        </span>
+                    </span>         
+                <div class="container">
+                    <div class="collapse" id="results17" data-parent="resultsshort17">
+                        <div id="info17"></div>
+                        <span class="row">
+                                
+                                    <span class="col-sm">
+                                        <div id="city17"></div>
+                                    </span>
+                                    <span class="col-sm">                           
+                                        <div id="country17"></div>
+                                        <div id="curve_chart-17"></div>
+                                        <div id="piechart17"></div>
+                                    </span>
+                        </span>
+                        <span class="row">
+                                    <span class="col-sm">
+                                        <!-- <div class="table-sm">
+                                            <table class="table-sm">
+                                                <thead>
+                                                    <tr>
+                                                        <th scope="col">Monat</th>
+                                                        <th scope="col">Jan</th>
+                                                        <th scope="col">Feb</th>
+                                                        <th scope="col">Mär</th>
+                                                        <th scope="col">Apr</th>
+                                                        <th scope="col">Mai</th>
+                                                        <th scope="col">Jun</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr>
+                                                        <th scope="row">Min.C°</th>
+                                                        <td><div id="JanMin17"></div></td>
+                                                        <td><div id="FebMin17"></div></td>
+                                                        <td><div id="MarMin17"></div></td>
+                                                        <td><div id="AprMin17"></div></td>
+                                                        <td><div id="MayMin17"></div></td>
+                                                        <td><div id="JunMin17"></div></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th scope="row">Max.C°</th>
+                                                        <td><div id="JanMax17"></div></td>
+                                                        <td><div id="FebMax17"></div></td>
+                                                        <td><div id="MarMax17"></div></td>
+                                                        <td><div id="AprMax17"></div></td>
+                                                        <td><div id="MayMax17"></div></td>
+                                                        <td><div id="JunMax17"></div></td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div> -->
+                                    </span>
+                            
+                                    <span class="col-sm">
+                                        <!-- <div class="table-sm">
+                                            <table class="table-sm">
+                                                <thead>
+                                                    <tr>
+                                                        <th scope="col">Monat</th>
+                                                        <th scope="col">Jul</th>
+                                                        <th scope="col">Aug</th>
+                                                        <th scope="col">Sep</th>
+                                                        <th scope="col">Okt</th>
+                                                        <th scope="col">Nov</th>
+                                                        <th scope="col">Dez</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr>
+                                                        <th scope="row">Min.C°</th>
+                                                        <td><div id="JulMin17"></div></td>
+                                                        <td><div id="AugMin17"></div></td>
+                                                        <td><div id="SepMin17"></div></td>
+                                                        <td><div id="OctMin17"></div></td>
+                                                        <td><div id="NovMin17"></div></td>
+                                                        <td><div id="DecMin17"></div></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th scope="row">Max.C°</th>
+                                                        <td><div id="JulMax17"></div></td>
+                                                        <td><div id="AugMax17"></div></td>
+                                                        <td><div id="SepMax17"></div></td>
+                                                        <td><div id="OctMax17"></div></td>
+                                                        <td><div id="NovMax17"></div></td>
+                                                        <td><div id="DecMax17"></div></td>                               
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div> -->
+                                    </span>
+                        </span>
+                    </div>
+                </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-sm">
+                <div class="card" class="resultcard" id="resultcard18" data-toggle="collapse" data-target="#results18" aria-expanded="false" aria-controls="results18">
+                    <span class="row">
+                        <span class="col-sm">
+                            <div id="imagelink18">
+                            </div>
+                        </span>
+                        <span class="col-sm">
+                            <h5 class="card-title" id="top18">
+                            </h5>
+                        </span>
+                    </span>         
+                <div class="container">
+                    <div class="collapse" id="results18" data-parent="resultsshort18">
+                        <div id="info18"></div>
+                        <span class="row">
+                                
+                                    <span class="col-sm">
+                                        <div id="city18"></div>
+                                    </span>
+                                    <span class="col-sm">                           
+                                        <div id="country18"></div>
+                                        <div id="curve_chart-18"></div>
+                                        <div id="piechart18"></div>
+                                    </span>
+                        </span>
+                        <span class="row">
+                                    <span class="col-sm">
+
+                                        <!-- <div class="table-sm">
+                                            <table class="table-sm">
+                                                <thead>
+                                                    <tr>
+                                                        <th scope="col">Monat</th>
+                                                        <th scope="col">Jan</th>
+                                                        <th scope="col">Feb</th>
+                                                        <th scope="col">Mär</th>
+                                                        <th scope="col">Apr</th>
+                                                        <th scope="col">Mai</th>
+                                                        <th scope="col">Jun</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr>
+                                                        <th scope="row">Min.C°</th>
+                                                        <td><div id="JanMin18"></div></td>
+                                                        <td><div id="FebMin18"></div></td>
+                                                        <td><div id="MarMin18"></div></td>
+                                                        <td><div id="AprMin18"></div></td>
+                                                        <td><div id="MayMin18"></div></td>
+                                                        <td><div id="JunMin18"></div></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th scope="row">Max.C°</th>
+                                                        <td><div id="JanMax18"></div></td>
+                                                        <td><div id="FebMax18"></div></td>
+                                                        <td><div id="MarMax18"></div></td>
+                                                        <td><div id="AprMax18"></div></td>
+                                                        <td><div id="MayMax18"></div></td>
+                                                        <td><div id="JunMax18"></div></td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div> -->
+                                    </span>
+                            
+                                    <span class="col-sm">
+                                        <!-- <div class="table-sm">
+                                            <table class="table-sm">
+                                                <thead>
+                                                    <tr>
+                                                        <th scope="col">Monat</th>
+                                                        <th scope="col">Jul</th>
+                                                        <th scope="col">Aug</th>
+                                                        <th scope="col">Sep</th>
+                                                        <th scope="col">Okt</th>
+                                                        <th scope="col">Nov</th>
+                                                        <th scope="col">Dez</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr>
+                                                        <th scope="row">Min.C°</th>
+                                                        <td><div id="JulMin18"></div></td>
+                                                        <td><div id="AugMin18"></div></td>
+                                                        <td><div id="SepMin18"></div></td>
+                                                        <td><div id="OctMin18"></div></td>
+                                                        <td><div id="NovMin18"></div></td>
+                                                        <td><div id="DecMin18"></div></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th scope="row">Max.C°</th>
+                                                        <td><div id="JulMax18"></div></td>
+                                                        <td><div id="AugMax18"></div></td>
+                                                        <td><div id="SepMax18"></div></td>
+                                                        <td><div id="OctMax18"></div></td>
+                                                        <td><div id="NovMax18"></div></td>
+                                                        <td><div id="DecMax18"></div></td>                               
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div> -->
+                                    </span>
+                        </span>
+                    </div>
+                </div>
+                </div>
+            </div>
+
+            <div class="col-sm">
+                <div class="card" class="resultcard" id="resultcard19" data-toggle="collapse" data-target="#results19" aria-expanded="false" aria-controls="results19">
+                    <span class="row">
+                        <span class="col-sm">
+                            <div id="imagelink19">
+                            </div>
+                        </span>
+                        <span class="col-sm">
+                            <h5 class="card-title" id="top19">
+                            </h5>
+                        </span>
+                    </span>         
+                <div class="container">
+                    <div class="collapse" id="results19" data-parent="resultsshort19">
+                        <div id="info19"></div>
+                        <span class="row">
+                                
+                                    <span class="col-sm">
+                                        <div id="city19"></div>
+                                    </span>
+                                    <span class="col-sm">                           
+                                        <div id="country19"></div>
+                                        <div id="curve_chart-19"></div>
+                                        <div id="piechart19"></div>
+                                    </span>
+                        </span>
+                        <span class="row">
+                                    <span class="col-sm">
+                                        <!-- <div class="table-sm">
+                                            <table class="table-sm">
+                                                <thead>
+                                                    <tr>
+                                                        <th scope="col">Monat</th>
+                                                        <th scope="col">Jan</th>
+                                                        <th scope="col">Feb</th>
+                                                        <th scope="col">Mär</th>
+                                                        <th scope="col">Apr</th>
+                                                        <th scope="col">Mai</th>
+                                                        <th scope="col">Jun</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr>
+                                                        <th scope="row">Min.C°</th>
+                                                        <td><div id="JanMin19"></div></td>
+                                                        <td><div id="FebMin19"></div></td>
+                                                        <td><div id="MarMin19"></div></td>
+                                                        <td><div id="AprMin19"></div></td>
+                                                        <td><div id="MayMin19"></div></td>
+                                                        <td><div id="JunMin19"></div></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th scope="row">Max.C°</th>
+                                                        <td><div id="JanMax19"></div></td>
+                                                        <td><div id="FebMax19"></div></td>
+                                                        <td><div id="MarMax19"></div></td>
+                                                        <td><div id="AprMax19"></div></td>
+                                                        <td><div id="MayMax19"></div></td>
+                                                        <td><div id="JunMax19"></div></td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div> -->
+                                    </span>
+                            
+                                    <span class="col-sm">
+                                        <!-- <div class="table-sm">
+                                            <table class="table-sm">
+                                                <thead>
+                                                    <tr>
+                                                        <th scope="col">Monat</th>
+                                                        <th scope="col">Jul</th>
+                                                        <th scope="col">Aug</th>
+                                                        <th scope="col">Sep</th>
+                                                        <th scope="col">Okt</th>
+                                                        <th scope="col">Nov</th>
+                                                        <th scope="col">Dez</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr>
+                                                        <th scope="row">Min.C°</th>
+                                                        <td><div id="JulMin19"></div></td>
+                                                        <td><div id="AugMin19"></div></td>
+                                                        <td><div id="SepMin19"></div></td>
+                                                        <td><div id="OctMin19"></div></td>
+                                                        <td><div id="NovMin19"></div></td>
+                                                        <td><div id="DecMin19"></div></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th scope="row">Max.C°</th>
+                                                        <td><div id="JulMax19"></div></td>
+                                                        <td><div id="AugMax19"></div></td>
+                                                        <td><div id="SepMax19"></div></td>
+                                                        <td><div id="OctMax19"></div></td>
+                                                        <td><div id="NovMax19"></div></td>
+                                                        <td><div id="DecMax19"></div></td>                               
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div> -->
+                                    </span>
+                        </span>
+                    </div>
+                </div>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+    </div>
+    
+<script>
+
+function giveResult(){
+
+
+    
+var myObj, i, j, k, x1, x2, x3, image, rank = "";
+
+var xhr = new XMLHttpRequest();
+var queryString = location.search;
+var url = "https://mdxompdmpd.execute-api.eu-central-1.amazonaws.com/dev/api/v1/recommendation" + queryString;
+xhr.open("GET", url);
+
+xhr.send();
+xhr.addEventListener("readystatechange", function() {
+  if(this.readyState === 4) {
+    var status = xhr.status;
+    if (status === 0 || (status >= 200 && status < 400)) {
+      // The request has been completed successfully
+        
+    myObject = JSON.parse(xhr.responseText);
+    
+    if(myObject.length>0){
+
+
+
+    for (var i = 0; i <= myObject.length; i++) {
+    var myObj = myObject[i];
+    var rank = i+1;
+
+
+
+    function myShowFunction() {
+    if(rank<10){
+    document.getElementById("resultcard" + rank).style.display = "block";
+    document.getElementById("yourresult").style.display = "block";
+    }else if(rank>=10){
+    document.getElementById("more1").style.display = "block";
+    }
+    }
+
+    myShowFunction();  
+
+
+
+   /* function pie(number){
+
+    google.charts.load('current', {'packages':['corechart']});
+    google.charts.setOnLoadCallback(drawChart);
+
+    function drawChart() {
+    var rank = number+1;
+    var rural = (myObj.ruralSizeKmSq)
+    var urban = (myObj.urbanSizeKmSq)
+
+    var data = google.visualization.arrayToDataTable([
+    ['Anteil an Landfläche', '%'],
+    ['ländlich '  + (myObject[number].ruralSizeKmSq/(myObject[number].ruralSizeKmSq+myObject[number].urbanSizeKmSq)*100).toFixed(0) + '%' , rural],
+    ['städtisch '  + (myObject[number].urbanSizeKmSq/(myObject[number].ruralSizeKmSq+myObject[number].urbanSizeKmSq)*100).toFixed(0) + '%' , urban]
+    ]);
+
+    
+    var options = {'width': 310, 'position':'relative', chartArea: {left: "0%"}, is3D: true, colors: ['transparent'], 'fontSize': 16, pieSliceText: 'none', 'colors':['blue', 'red']}
+    var options1 = {'backgroundColor':'transparent', 'width': 470, 'position':'relative', chartArea: {left: "1%"}, is3D: true, colors: ['transparent'], 'fontSize': 16, pieSliceText: 'none', 'colors':['blue', 'red']}
+
+
+    
+
+  var chart = new google.visualization.PieChart(document.getElementById('piechart' + rank));
+  if(rank==1){
+  chart.draw(data, options1);
+  }else{
+  chart.draw(data, options);
+  }
+    }
+
+     google.charts.load('current', {'packages':['table']});
+    google.charts.setOnLoadCallback(drawTable);
+
+      function drawTable() {
+        var data1 = new google.visualization.DataTable();
+        data1.addColumn('string', 'Monat');
+        data1.addColumn('number', 'Jan');
+        data1.addColumn('number', 'Feb');
+        data1.addColumn('number', 'Mar');
+        data1.addColumn('number', 'Apr');
+        data1.addColumn('number', 'May');
+        data1.addColumn('number', 'Jun');
+        data1.addRows([
+          ['Min',  {v: myObj.tmin_jan_value, f: myObj.tmin_jan_value.toFixed(1)}, {v: myObj.tmin_feb_value, f: myObj.tmin_feb_value.toFixed(1)}, {v: myObj.tmin_mar_value, f: myObj.tmin_mar_value.toFixed(1)}, {v: myObj.tmin_apr_value, f: myObj.tmin_apr_value.toFixed(1)}, {v: myObj.tmin_may_value, f: myObj.tmin_may_value.toFixed(1)}, {v: myObj.tmin_jun_value, f: myObj.tmin_jun_value.toFixed(1)}],
+          ['Max',  {v: myObj.tmax_jan_value, f: myObj.tmax_jan_value.toFixed(1)}, {v: myObj.tmax_feb_value, f: myObj.tmax_feb_value.toFixed(1)}, {v: myObj.tmax_mar_value, f: myObj.tmax_mar_value.toFixed(1)}, {v: myObj.tmax_apr_value, f: myObj.tmax_apr_value.toFixed(1)}, {v: myObj.tmax_may_value, f: myObj.tmax_may_value.toFixed(1)}, {v: myObj.tmax_jun_value, f: myObj.tmax_jun_value.toFixed(1)}],
+        ]);
+
+        var table1 = new google.visualization.Table(document.getElementById('table_div' + rank + '-1'));
+
+        table1.draw(data1, {showRowNumber: false, width: '100%', height: '100'});
+
+        var data2 = new google.visualization.DataTable();
+        data2.addColumn('string', 'Monat');
+        data2.addColumn('number', 'Jul');
+        data2.addColumn('number', 'Aug');
+        data2.addColumn('number', 'Sep');
+        data2.addColumn('number', 'Oct');
+        data2.addColumn('number', 'Nov');
+        data2.addColumn('number', 'Dec');
+        data2.addRows([
+        ['Min',  {v: myObj.tmin_jul_value, f: myObj.tmin_jul_value.toFixed(1)}, {v: myObj.tmin_aug_value, f: myObj.tmin_aug_value.toFixed(1)}, {v: myObj.tmin_sep_value, f: myObj.tmin_sep_value.toFixed(1)}, {v: myObj.tmin_oct_value, f: myObj.tmin_oct_value.toFixed(1)}, {v: myObj.tmin_nov_value, f: myObj.tmin_nov_value.toFixed(1)}, {v: myObj.tmin_dec_value, f: myObj.tmin_dec_value.toFixed(1)}],
+        ['Max',  {v: myObj.tmax_jul_value, f: myObj.tmax_jul_value.toFixed(1)}, {v: myObj.tmax_aug_value, f: myObj.tmax_aug_value.toFixed(1)}, {v: myObj.tmax_sep_value, f: myObj.tmax_sep_value.toFixed(1)}, {v: myObj.tmax_oct_value, f: myObj.tmax_oct_value.toFixed(1)}, {v: myObj.tmax_nov_value, f: myObj.tmax_nov_value.toFixed(1)}, {v: myObj.tmax_dec_value, f: myObj.tmax_dec_value.toFixed(1)}],
+        ]);
+
+        var table2 = new google.visualization.Table(document.getElementById('table_div' + rank + '-2'));
+
+        table2.draw(data2, {showRowNumber: false, width: '100%', height: '100'});
+
+
+      } 
+    }
+
+    pie(i);*/
+
+      function line(number){
+
+      google.charts.load('current', {'packages':['corechart']});
+      google.charts.load('current', {'packages':['line']});
+      google.charts.setOnLoadCallback(drawChart1);
+
+      function drawChart1() {   
+        rank = number+1;
+        if(number<myObject.length){
+
+            var data = new google.visualization.DataTable();
+            data.addColumn('string', 'Monat');
+            data.addColumn('number', 'Min');
+            data.addColumn({type:'number', role:'annotation'});
+            data.addColumn('number', 'Max');
+            data.addColumn({type:'number', role:'annotation'});
+            data.addRows([
+          ['Jan',  myObject[number].tmin_jan_value, lowestOrNull(0, myObject[number].tmin_jan_value),  myObject[number].tmax_jan_value, highestOrNull(0, myObject[number].tmax_jan_value)],
+          ['Feb',  myObject[number].tmin_feb_value, lowestOrNull(1, myObject[number].tmin_feb_value),  myObject[number].tmax_feb_value, highestOrNull(1, myObject[number].tmax_feb_value)],
+          ['Mar',  myObject[number].tmin_mar_value, lowestOrNull(2, myObject[number].tmin_mar_value),  myObject[number].tmax_mar_value, highestOrNull(2, myObject[number].tmax_mar_value)],
+          ['Apr',  myObject[number].tmin_apr_value, lowestOrNull(3, myObject[number].tmin_apr_value),  myObject[number].tmax_apr_value, highestOrNull(3, myObject[number].tmax_apr_value)],
+          ['May',  myObject[number].tmin_may_value, lowestOrNull(4, myObject[number].tmin_may_value),  myObject[number].tmax_may_value, highestOrNull(4, myObject[number].tmax_may_value)],
+          ['Jun',  myObject[number].tmin_jun_value, lowestOrNull(5, myObject[number].tmin_jun_value),  myObject[number].tmax_jun_value, highestOrNull(5, myObject[number].tmax_jun_value)],
+          ['Jul',  myObject[number].tmin_jul_value, lowestOrNull(6, myObject[number].tmin_jul_value),  myObject[number].tmax_jul_value, highestOrNull(6, myObject[number].tmax_jul_value)],
+          ['Aug',  myObject[number].tmin_aug_value, lowestOrNull(7, myObject[number].tmin_aug_value),  myObject[number].tmax_aug_value, highestOrNull(7, myObject[number].tmax_aug_value)],
+          ['Sep',  myObject[number].tmin_sep_value, lowestOrNull(8, myObject[number].tmin_sep_value),  myObject[number].tmax_sep_value, highestOrNull(8, myObject[number].tmax_sep_value)],
+          ['Oct',  myObject[number].tmin_oct_value, lowestOrNull(9, myObject[number].tmin_oct_value),  myObject[number].tmax_oct_value, highestOrNull(9, myObject[number].tmax_oct_value)],
+          ['Nov',  myObject[number].tmin_nov_value, lowestOrNull(10, myObject[number].tmin_nov_value),  myObject[number].tmax_nov_value, highestOrNull(10, myObject[number].tmax_nov_value)],
+          ['Dec',  myObject[number].tmin_dec_value, lowestOrNull(11, myObject[number].tmin_dec_value),  myObject[number].tmax_dec_value, highestOrNull(11, myObject[number].tmax_dec_value)]
+            ]);
+
+            var arrmin = [myObject[number].tmin_jan_value, myObject[number].tmin_feb_value, myObject[number].tmin_mar_value, myObject[number].tmin_apr_value, myObject[number].tmin_may_value, myObject[number].tmin_jun_value, myObject[number].tmin_jul_value, myObject[number].tmin_aug_value, myObject[number].tmin_sep_value, myObject[number].tmin_oct_value, myObject[number].tmin_nov_value, myObject[number].tmin_dec_value];
+            var arrmax = [myObject[number].tmax_jan_value, myObject[number].tmax_feb_value, myObject[number].tmax_mar_value, myObject[number].tmax_apr_value, myObject[number].tmax_may_value, myObject[number].tmax_jun_value, myObject[number].tmax_jul_value, myObject[number].tmax_aug_value, myObject[number].tmax_sep_value, myObject[number].tmax_oct_value, myObject[number].tmax_nov_value, myObject[number].tmax_dec_value];
+
+            function indexOfMax(arr) {
+            var arrmax = [myObject[number].tmax_jan_value, myObject[number].tmax_feb_value, myObject[number].tmax_mar_value, myObject[number].tmax_apr_value, myObject[number].tmax_may_value, myObject[number].tmax_jun_value, myObject[number].tmax_jul_value, myObject[number].tmax_aug_value, myObject[number].tmax_sep_value, myObject[number].tmax_oct_value, myObject[number].tmax_nov_value, myObject[number].tmax_dec_value];
+
+            var max = arrmax[0];
+            var maxIndex = 0;
+
+            for (var i = 1; i < arrmax.length; i++) {
+                if (arrmax[i] > max) {
+                    maxIndex = i;
+                    max = arrmax[i];
+                }
+            }
+
+            return maxIndex;
+        }
+
+        function indexOfMin(arr) {
+            var arrmin = [myObject[number].tmin_jan_value, myObject[number].tmin_feb_value, myObject[number].tmin_mar_value, myObject[number].tmin_apr_value, myObject[number].tmin_may_value, myObject[number].tmin_jun_value, myObject[number].tmin_jul_value, myObject[number].tmin_aug_value, myObject[number].tmin_sep_value, myObject[number].tmin_oct_value, myObject[number].tmin_nov_value, myObject[number].tmin_dec_value];
+
+            var min = arrmin[0];
+            var minIndex = 0;
+
+            for (var i = 1; i < arrmin.length; i++) {
+                if (arrmin[i] < min) {
+                    minIndex = i;
+                    min = arrmin[i];
+                }
+            }
+
+            return minIndex;
+        }
+
+        function highestOrNull(pos, value){
+            if(pos==indexOfMax(arrmax)){
+                return value;}else{
+                    return null;
+                }
+        }
+
+        function lowestOrNull(pos, value){
+            if(pos==indexOfMin(arrmin)){
+                return value;}else{
+                    return null;
+                }
+        }
+
+        
+
+        var data1 = google.visualization.arrayToDataTable([
+          ['Monat', 'Min', 'Max', 'def'],
+          ['Jan',  myObject[number].tmin_jan_value, myObject[number].tmax_jan_value,"abc"],
+          ['Feb',  myObject[number].tmin_feb_value, myObject[number].tmax_feb_value,"abc"],
+          ['Mar',  myObject[number].tmin_mar_value, myObject[number].tmax_mar_value,"abc"],
+          ['Apr',  myObject[number].tmin_apr_value, myObject[number].tmax_apr_value,"abc"],
+          ['May',  myObject[number].tmin_may_value, myObject[number].tmax_may_value,"abc"],
+          ['Jun',  myObject[number].tmin_jun_value, myObject[number].tmax_jun_value,"abc"],
+          ['Jul',  myObject[number].tmin_jul_value, myObject[number].tmax_jul_value,"abc"],
+          ['Aug',  myObject[number].tmin_aug_value, myObject[number].tmax_aug_value,"abc"],
+          ['Sep',  myObject[number].tmin_sep_value, myObject[number].tmax_sep_value,"abc"],
+          ['Oct',  myObject[number].tmin_oct_value, myObject[number].tmax_oct_value,"abc"],
+          ['Nov',  myObject[number].tmin_nov_value, myObject[number].tmax_nov_value,"abc"],
+          ['Dec',  myObject[number].tmin_dec_value, myObject[number].tmax_dec_value,"abc"]
+        ]);
+        }
+
+        var width = $(parent).width();
+
+        var options1 = {
+          title: 'Temperatur in °C',
+          annotations: {
+      textStyle: {
+        fontSize: 10
+      }
+    },
+    series: {
+      0: {
+        annotations: {
+          stem: {
+            length: 3
+          },
+        },
+      },
+      1: {
+        annotations: {
+          stem: {
+            length: 3
+          }
+        },
+      },
+      2: {
+        type: 'line'
+      }
+    },
+          curveType: 'function',
+          legend: { position: 'top'},
+          width: 350,
+          height: 'auto',
+          pointSize: 3,
+          vAxis: { gridlines: { count: 6 }},
+          chartArea: {
+            top: 58,
+            left: 20,
+            right: 76,
+            bottom: 48
+            },
+          'backgroundColor': 'transparent'
+        };
+
+        var options2 = {
+          title: 'Temperatur in °C',
+          annotations: {
+      textStyle: {
+        fontSize: 10
+      }
+    },
+    series: {
+      0: {
+        annotations: {
+          stem: {
+            length: 3
+          },
+        },
+      },
+      1: {
+        annotations: {
+          stem: {
+            length: 3
+          }
+        },
+      },
+      2: {
+        type: 'line'
+      }
+    },
+          curveType: 'function',
+          
+          legend: { position: 'right'},
+          width: 280,
+          vAxis: { gridlines: { count: 6 },
+          scaleType: 'lin' },
+          format: 'decimal',
+          height: 'auto',
+          pointSize: 3,
+          chartArea: {
+            top: 18,
+            left: 0,
+            right: 60,
+            bottom: 48
+            },
+            'backgroundColor': 'transparent'
+        };
+
+        if(rank==1){
+        var chart11 = new google.visualization.LineChart(document.getElementById('curve_chart-1'));
+        chart11.draw(data, options1);
+        }else if(rank>1 && rank<20 && rank<myObject.length){
+        var chart11 = new google.visualization.LineChart(document.getElementById('curve_chart-' + rank));
+        chart11.draw(data, options2);
+        }
+
+
+
+
+
+        /* var data2 = google.visualization.arrayToDataTable([
+          ['Monat', 'Min', 'Max'],
+          ['Jan',  myObj.tmin_jan_value, myObj.tmax_jan_value],
+          ['Feb',  myObj.tmin_feb_value, myObj.tmax_feb_value],
+          ['Mar',  myObj.tmin_mar_value, myObj.tmax_mar_value],
+          ['Apr',  myObj.tmin_apr_value, myObj.tmax_apr_value],
+          ['May',  myObj.tmin_may_value, myObj.tmax_may_value],
+          ['Jun',  myObj.tmin_jun_value, myObj.tmax_jun_value],
+          ['Jul',  myObj.tmin_jul_value, myObj.tmax_jul_value],
+          ['Aug',  myObj.tmin_aug_value, myObj.tmax_aug_value],
+          ['Sep',  myObj.tmin_sep_value, myObj.tmax_sep_value],
+          ['Oct',  myObj.tmin_oct_value, myObj.tmax_oct_value],
+          ['Nov',  myObj.tmin_nov_value, myObj.tmax_nov_value],
+          ['Dec',  myObj.tmin_dec_value, myObj.tmax_dec_value]
+        ]);
+
+        var options2 = {
+          title: 'Temperatur',
+          curveType: 'function',
+          legend: { position: 'top'},
+          height: 200,
+          width: '100%',
+          'chartArea': {'width': '70%'},
+          'backgroundColor': 'transparent'
+        };
+
+        var chart12 = new google.visualization.LineChart(document.getElementById('curve_chart-' + rank));
+
+        chart12.draw(data2, options2); */
+
+      } 
+
+
+    }
+
+
+    line(i);
+
+     
+
+
+
+    if(rank==1){
+    info = ""
+
+    }else{
+    info = "<br>" + "<p>" + "Hier finden Sie weiterführende Informationen zu:" + "</p>"}
+
+
+    if(rank==1){
+        image = '<img class="card-img"   src=' + '"' + myObj.image_links + '"' + 'style="height:13rem" alt="Image">'}
+
+    else if((rank-1)<myObject.length){
+        image = '<img class="card-img"   src=' + '"' + myObj.image_links + '"' + 'alt="Image">'}
+
+
+    if(rank==1){
+    place(rank);
+    x1 += "<h1 style='padding-top:0px;'>" +  myObj.cityName + "</h1>";
+
+    }else if((rank-1)<myObject.length){
+    place(rank);
+    x1 += "<h3>" +  myObj.cityName + "</h3>";}
+
+
+    if(rank==1){
+    x1 += "<h3 style='line-height: 100%; margin-bottom:10px;'>" + getCountryName(myObj.countryCode); + "</h3>" + "<br>"
+    x1 += "&nbsp&nbsp" + "<img src='" + myObj.flagLink + "' alt='SVG mit img Tag laden' width='auto' height='18' >"
+    x1 += "<br>" + "<h4>" + "Besonders interessant für Menschen, die " + getspecial () + " gut finden" + "</h4>"
+
+    }else if((rank-1)<myObject.length){
+    x1 += "<h5>" + getCountryName(myObj.countryCode); + "</h5>" + "<br>"
+    x1 += "&nbsp&nbsp" + "<img src='" + myObj.flagLink + "' alt='SVG mit img Tag laden' width='auto' height='18' >"
+    x1 += "<br><br>" + "<p>" + "Besonders interessant für Menschen, die " + getspecial () + " gut finden" + "</p>"}
+
+    if(rank==1){
+    x2 = ""
+
+    }else if((rank-1)<myObject.length){
+    x2 = "<h3>" + myObj.cityName + ":" + "</h3>"}
+
+
+    if(rank==1){
+    x2 += "<table class='table-borderless'><tbody>"
+    x2 += "<tr><td>" + "Einwohner: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;" + "</td><td>" + formatNumber(myObj.population); + "</td></tr>"
+    getbeach();
+    getmountains();
+    x2 += "</tbody></table>"
+    x2 += "<h2>" + "Kulturgrad:" + "</h2>"
+    x2 += "<table class='table-borderless'><tbody>"
+    getvalue(myObj.culture_aIndex, "Architektur:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;", "fas fa-hotel");
+    getvalue(myObj.culture_hIndex, "Geschichte:", "fas fa-landmark");
+    getvalue(myObj.culture_nIndex, "Natur:", "fas fa-leaf");
+    getvalue(myObj.culture_rIndex, "Religion:", "fas fa-place-of-worship");
+    getvalue(myObj.culture_iIndex, "Industrie:", "fas fa-industry");
+    getvalue(myObj.culture_cIndex, "Kultur:", "fas fa-theater-masks");
+    x2 += "</tbody></table>"
+    
+
+    }else if((rank-1)<myObject.length){
+    x2 += "<table class='table-borderless'><tbody>"
+    x2 += "<tr><td>" + "Einwohner: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;" + "</td><td>" + formatNumber(myObj.population); + "</td></tr>"
+    getbeach();
+    getmountains();
+    x2 += "</tbody></table>"
+    x2 += "<table class='table-borderless'><tbody>"
+    x2 += "<h4 style='font-weight:500;'>" + "Kulturgrad:" + "</h4>"
+    getvalue(myObj.culture_aIndex, "Architektur:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;", "fas fa-hotel");
+    getvalue(myObj.culture_hIndex, "Geschichte:", "fas fa-landmark");
+    getvalue(myObj.culture_nIndex, "Natur:", "fas fa-leaf");
+    getvalue(myObj.culture_rIndex, "Religion:", "fas fa-place-of-worship");
+    getvalue(myObj.culture_iIndex, "Industrie:", "fas fa-industry");
+    getvalue(myObj.culture_cIndex, "Kultur:", "fas fa-theater-masks");}
+    x2 += "</tbody></table>"
+   
+
+
+    /* MinJan = myObj.tmin_jan_value.toFixed(1);
+    MaxJan = myObj.tmax_jan_value.toFixed(1);
+
+    MinFeb = myObj.tmin_feb_value.toFixed(1);
+    MaxFeb = myObj.tmax_feb_value.toFixed(1);
+
+    MinMar = myObj.tmin_mar_value.toFixed(1);
+    MaxMar = myObj.tmax_mar_value.toFixed(1);
+
+    MinApr = myObj.tmin_apr_value.toFixed(1);
+    MaxApr = myObj.tmax_apr_value.toFixed(1);
+
+    MinMay = myObj.tmin_may_value.toFixed(1);
+    MaxMay = myObj.tmax_may_value.toFixed(1);
+
+    MinJun = myObj.tmin_jun_value.toFixed(1);
+    MaxJun = myObj.tmax_jun_value.toFixed(1);
+
+    MinJul = myObj.tmin_jul_value.toFixed(1);
+    MaxJul = myObj.tmax_jul_value.toFixed(1);
+
+    MinAug = myObj.tmin_aug_value.toFixed(1);
+    MaxAug = myObj.tmax_aug_value.toFixed(1);
+
+    MinSep = myObj.tmin_sep_value.toFixed(1);
+    MaxSep = myObj.tmax_sep_value.toFixed(1);
+
+    MinOct = myObj.tmin_oct_value.toFixed(1);
+    MaxOct = myObj.tmax_oct_value.toFixed(1);
+
+    MinNov = myObj.tmin_nov_value.toFixed(1);
+    MaxNov = myObj.tmax_nov_value.toFixed(1);
+
+    MinDec = myObj.tmin_dec_value.toFixed(1);
+    MaxDec = myObj.tmax_dec_value.toFixed(1); */
+
+    if(rank==1){
+    x3 = ""
+
+    }else if((rank-1)<myObject.length){
+    x3 = "<h3>" + getCountryName(myObj.countryCode); + ":" + "</h3>"}
+
+
+    if(rank==1){
+    x3 += "<table class='table-borderless'><tbody>"
+    x3 += "<tr><td>" + "Bevölkerung: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;" + "</td><td>" + formatNumber(myObj.countryPopulation) + "</td></tr>";
+    getcpi();
+    getinfrastructure();
+    getsafety();
+    x3 += "<tr><td>" + "Landfläche: " + "</td><td>" + myObj.countrySizeKmSq + "km<sup>2</sup>" + "</td></tr>";
+    x3 += "</tbody></table>"
+
+
+    }else if((rank-1)<myObject.length){
+    x3 += "<table class='table-borderless'><tbody>"
+    x3 += "<tr><td>" + "Bevölkerung: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;" + "</td><td>" + formatNumber(myObj.countryPopulation) + "</td></tr>";
+    getcpi();
+    getinfrastructure();
+    getsafety();
+    x3 += "<tr><td>" + "Landfläche: " + "</td><td>" + myObj.countrySizeKmSq + "km<sup>2</sup>" + "</td></tr>";
+    x3 += "</tbody></table>"
+    }
+
+
+      
+
+
+
+
+
+if(rank<20){
+document.getElementById("top" + rank).innerHTML = x1;
+document.getElementById("city" + rank).innerHTML = x2;
+document.getElementById("country" + rank).innerHTML = x3;
+document.getElementById("imagelink" + rank).innerHTML = image;
+document.getElementById("info" + rank).innerHTML = info;
+}
+    
+
+
+/* document.getElementById("JanMin" + rank).innerHTML = MinJan;
+document.getElementById("JanMax" + rank).innerHTML = MaxJan;
+document.getElementById("FebMin" + rank).innerHTML = MinFeb;
+document.getElementById("FebMax" + rank).innerHTML = MaxFeb;
+document.getElementById("MarMin" + rank).innerHTML = MinMar;
+document.getElementById("MarMax" + rank).innerHTML = MaxMar;
+document.getElementById("AprMin" + rank).innerHTML = MinApr;
+document.getElementById("AprMax" + rank).innerHTML = MaxApr;
+document.getElementById("MayMin" + rank).innerHTML = MinMay;
+document.getElementById("MayMax" + rank).innerHTML = MaxMay;
+document.getElementById("JunMin" + rank).innerHTML = MinJun;
+document.getElementById("JunMax" + rank).innerHTML = MaxJun;
+document.getElementById("JulMin" + rank).innerHTML = MinJul;
+document.getElementById("JulMax" + rank).innerHTML = MaxJul;
+document.getElementById("AugMin" + rank).innerHTML = MinAug;
+document.getElementById("AugMax" + rank).innerHTML = MaxAug;
+document.getElementById("SepMin" + rank).innerHTML = MinSep;
+document.getElementById("SepMax" + rank).innerHTML = MaxSep;
+document.getElementById("OctMin" + rank).innerHTML = MinOct;
+document.getElementById("OctMax" + rank).innerHTML = MaxOct;
+document.getElementById("NovMin" + rank).innerHTML = MinNov;
+document.getElementById("NovMax" + rank).innerHTML = MaxNov;
+document.getElementById("DecMin" + rank).innerHTML = MinDec;
+document.getElementById("DecMax" + rank).innerHTML = MaxDec;
+ */
+  }
+
+
+
+
+function getCountryName(countryCode) {
+    var isoCountries = {
+    "AD": "Andorra", 
+    "AE": "Vereinigte Arabische Emirate", 
+    "AF": "Afghanistan", 
+    "AG": "Antigua und Barbuda", 
+    "AI": "Anguilla", 
+    "AL": "Albanien", 
+    "AM": "Armenien", 
+    "AN": "Niederländische Antillen", 
+    "AO": "Angola", 
+    "AQ": "Antarktika", 
+    "AR": "Argentinien", 
+    "AS": "Amerikanisch-Samoa", 
+    "AT": "Österreich", 
+    "AU": "Australien", 
+    "AW": "Aruba", 
+    "AX": "Aland", 
+    "AZ": "Aserbaidschan", 
+    "BA": "Bosnien und Herzegowina", 
+    "BB": "Barbados", 
+    "BD": "Bangladesch", 
+    "BE": "Belgien", 
+    "BF": "Burkina Faso", 
+    "BG": "Bulgarien", 
+    "BH": "Bahrain", 
+    "BI": "Burundi", 
+    "BJ": "Benin", 
+    "BL": "Saint-Barthélemy", 
+    "BM": "Bermuda", 
+    "BN": "Brunei Darussalam", 
+    "BO": "Bolivien", 
+    "BQ": "Bonaire, Sint Eustatius und Saba", 
+    "BR": "Brasilien", 
+    "BS": "Bahamas", 
+    "BT": "Bhutan", 
+    "BV": "Bouvetinsel", 
+    "BW": "Botswana", 
+    "BY": "Belarus (Weißrussland)", 
+    "BZ": "Belize", 
+    "CA": "Kanada", 
+    "CC": "Kokosinseln", 
+    "CD": "Demokratische Republik Kongo", 
+    "CF": "Zentralafrikanische Republik", 
+    "CG": "Republik Kongo", 
+    "CH": "Schweiz", 
+    "CI": "Cote d'Ivoire", 
+    "CK": "Cookinseln", 
+    "CL": "Chile", 
+    "CM": "Kamerun", 
+    "CN": "Volksrepublik China", 
+    "CO": "Kolumbien", 
+    "CR": "Costa Rica", 
+    "CU": "Kuba", 
+    "CV": "Kap Verde", 
+    "CW": "Curacao", 
+    "CX": "Weihnachtsinsel", 
+    "CY": "Zypern", 
+    "CZ": "Tschechische Republik", 
+    "DD": "Deutsche Demokratische Republik", 
+    "DE": "Deutschland", 
+    "DJ": "Dschibuti", 
+    "DK": "Dänemark", 
+    "DM": "Dominica", 
+    "DO": "Dominikanische Republik", 
+    "DZ": "Algerien", 
+    "EC": "Ecuador", 
+    "EE": "Estland", 
+    "EG": "Ägypten", 
+    "EH": "Westsahara", 
+    "ER": "Eritrea", 
+    "ES": "Spanien", 
+    "ET": "Athiopien", 
+    "FJ": "Fidschi", 
+    "FK": "Falklandinseln", 
+    "FM": "Mikronesien", 
+    "FO": "Färöer", 
+    "FR": "Frankreich", 
+    "GA": "Gabun", 
+    "GD": "Grenada", 
+    "GE": "Georgien", 
+    "GF": "Französisch-Guayana", 
+    "GG": "Guernsey (Kanalinsel)", 
+    "GH": "Ghana", 
+    "GI": "Gibraltar", 
+    "GL": "Grönland", 
+    "GM": "Gambia", 
+    "GN": "Guinea", 
+    "GP": "Guadeloupe", 
+    "GQ": "Äquatorialguinea", 
+    "GR": "Griechenland", 
+    "GS": "Südgeorgien und Südliche Sandwichinseln", 
+    "GT": "Guatemala", 
+    "GU": "Guam", 
+    "GW": "Guinea-Bissau", 
+    "GY": "Guyana", 
+    "HK": "Hongkong", 
+    "HM": "Heard und McDonaldinseln", 
+    "HN": "Honduras", 
+    "HR": "Kroatien", 
+    "HT": "Haiti", 
+    "HU": "Ungarn", 
+    "ID": "Indonesien", 
+    "IE": "Irland", 
+    "IL": "Israel", 
+    "IM": "Isle of Man", 
+    "IN": "Indien", 
+    "IO": "Britisches Territorium im Indischen Ozean", 
+    "IQ": "Irak", 
+    "IR": "Iran", 
+    "IS": "Island", 
+    "IT": "Italien", 
+    "JE": "Jersey (Kanalinsel)", 
+    "JM": "Jamaika", 
+    "JO": "Jordanien", 
+    "JP": "Japan", 
+    "KE": "Kenia", 
+    "KG": "Kirgisistan", 
+    "KH": "Kambodscha", 
+    "KI": "Kiribati", 
+    "KM": "Komoren", 
+    "KN": "St. Kitts und Nevis", 
+    "KP": "Nordkorea", 
+    "KR": "Südkorea", 
+    "KW": "Kuwait", 
+    "KY": "Kaimaninseln", 
+    "KZ": "Kasachstan", 
+    "LA": "Laos", 
+    "LB": "Libanon", 
+    "LC": "St. Lucia", 
+    "LI": "Liechtenstein", 
+    "LK": "Sri Lanka", 
+    "LR": "Liberia", 
+    "LS": "Lesotho", 
+    "LT": "Litauen", 
+    "LU": "Luxemburg", 
+    "LV": "Lettland", 
+    "LY": "Libyen", 
+    "MA": "Marokko", 
+    "MC": "Monaco", 
+    "MD": "Moldawien (Republik Moldau)", 
+    "ME": "Montenegro", 
+    "MF": "Saint-Martin (franz. Teil)", 
+    "MG": "Madagaskar", 
+    "MH": "Marshallinseln", 
+    "MK": "Mazedonien", 
+    "ML": "Mali", 
+    "MM": "Myanmar (Burma)", 
+    "MN": "Mongolei", 
+    "MO": "Macau", 
+    "MP": "Nördliche Marianen", 
+    "MQ": "Martinique", 
+    "MR": "Mauretanien", 
+    "MS": "Montserrat", 
+    "MT": "Malta", 
+    "MU": "Mauritius", 
+    "MV": "Malediven", 
+    "MW": "Malawi", 
+    "MX": "Mexiko", 
+    "MY": "Malaysia", 
+    "MZ": "Mosambik", 
+    "NA": "Namibia", 
+    "NC": "Neukaledonien", 
+    "NE": "Niger", 
+    "NF": "Norfolkinsel", 
+    "NG": "Nigeria", 
+    "NI": "Nicaragua", 
+    "NL": "Niederlande", 
+    "NO": "Norwegen", 
+    "NP": "Nepal", 
+    "NR": "Nauru", 
+    "NU": "Niue", 
+    "NZ": "Neuseeland", 
+    "OM": "Oman", 
+    "PA": "Panama", 
+    "PE": "Peru", 
+    "PF": "Französisch-Polynesien", 
+    "PG": "Papua-Neuguinea", 
+    "PH": "Philippinen", 
+    "PK": "Pakistan", 
+    "PL": "Polen", 
+    "PM": "St. Pierre und Miquelon", 
+    "PN": "Pitcairninseln", 
+    "PR": "Puerto Rico", 
+    "PS": "Palästina", 
+    "PT": "Portugal", 
+    "PW": "Palau", 
+    "PY": "Paraguay", 
+    "QA": "Katar", 
+    "RE": "Réunion", 
+    "RO": "Rumanien", 
+    "RS": "Serbien", 
+    "RU": "Russland", 
+    "RW": "Ruanda", 
+    "SA": "Saudi-Arabien", 
+    "SB": "Salomonen", 
+    "SC": "Seychellen", 
+    "SD": "Sudan", 
+    "SE": "Schweden", 
+    "SG": "Singapur", 
+    "SH": "St. Helena", 
+    "SI": "Slowenien", 
+    "SJ": "Svalbard und Jan Mayen", 
+    "SK": "Slowakei", 
+    "SL": "Sierra Leone", 
+    "SM": "San Marino", 
+    "SN": "Senegal", 
+    "SO": "Somalia", 
+    "SR": "Suriname", 
+    "SS": "Südsudan", 
+    "ST": "Sao Tomé und Príncipe", 
+    "SV": "El Salvador", 
+    "SX": "Sint Maarten (niederl. Teil)", 
+    "SY": "Syrien", 
+    "SZ": "Swasiland", 
+    "TC": "Turks- und Caicosinseln", 
+    "TD": "Tschad", 
+    "TF": "Französische Süd- und Antarktisgebiete", 
+    "TG": "Togo", 
+    "TH": "Thailand", 
+    "TJ": "Tadschikistan", 
+    "TK": "Tokelau", 
+    "TM": "Turkmenistan", 
+    "TN": "Tunesien", 
+    "TO": "Tonga", 
+    "TR": "Türkei", 
+    "TT": "Trinidad und Tobago", 
+    "TV": "Tuvalu", 
+    "TW": "Republik China (Taiwan)", 
+    "TZ": "Vereinigte Republik Tansania", 
+    "UA": "Ukraine", 
+    "UG": "Uganda", 
+    "UM": "United States Minor Outlying Islands", 
+    "US": "Vereinigte Staaten von Amerika", 
+    "UY": "Uruguay", 
+    "UZ": "Usbekistan", 
+    "VA": "Vatikanstadt", 
+    "VC": "St. Vincent und die Grenadinen", 
+    "VE": "Venezuela", 
+    "VG": "Britische Jungferninseln", 
+    "VI": "Amerikanische Jungferninseln", 
+    "VN": "Vietnam", 
+    "VU": "Vanuatu", 
+    "WF": "Wallis und Futuna", 
+    "WS": "Samoa", 
+    "YE": "Jemen", 
+    "YT": "Mayotte", 
+    "ZA": "Südafrika", 
+    "ZM": "Sambia", 
+    "ZW": "Simbabwe"
+};
+if (isoCountries.hasOwnProperty(countryCode)) {
+        return isoCountries[countryCode];
+    } else {
+        return countryCode;
+    }
+}
+
+
+
+function formatNumber(num) {
+  return num.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1.')
+}
+
+function stars(numberofstars, icon, Tooltip){
+    var star = "<span class='" + icon + " checked' data-toggle='tooltip' data-placement='right' title='" + Tooltip + "'></span>";
+    var nostar = "<span class='" + icon + " ' data-toggle='tooltip' data-placement='right' title='" + Tooltip + "'></span>";
+
+    if(numberofstars == 5){
+        return star + star + star +star + star;
+    }else if(numberofstars == 4){
+        return star + star + star + star + nostar;
+    }else if(numberofstars == 3){
+        return star + star + star + nostar + nostar;
+    }else if(numberofstars == 2){
+        return star + star + nostar + nostar + nostar;
+    }else if(numberofstars == 1){
+        return star + nostar + nostar + nostar + nostar;
+    }
+}
+
+function place(rank){
+if(rank==2){
+    x1 =  "<img src='2nd.png' alt='2nd' style='height: 48px; width: auto; position:absolute; top:1rem; right:1rem;'>"}
+else if(rank==3){
+    x1 =  "<img src='3rd.png' alt='3rd' style='height: 48px; width: auto; position:absolute; top:1rem; right:1rem;'>"}
+else{
+x1 = ""
+}
+}
+
+
+
+
+function getvalue(parametertype, parametername, icon){
+    if(parametertype==5){
+        x2 += "<tr><td>" + parametername + "&nbsp;&nbsp;&nbsp;" + "</td><td>" + stars(5, icon, "sehr hoch") +  "</td></tr>"
+    }else if(parametertype==4){
+        x2 += "<tr><td>" + parametername + "&nbsp;&nbsp;&nbsp;" + "</td><td>" + stars(4, icon, "hoch") +  "</td></tr>"
+    }else if(parametertype==3){
+        x2 += "<tr><td>" + parametername + "&nbsp;&nbsp;&nbsp;" + "</td><td>" + stars(3, icon, "normal") +  "</td></tr>"
+    }else if(parametertype==2){
+        x2 += "<tr><td>" + parametername + "&nbsp;&nbsp;&nbsp;" + "</td><td>" + stars(2, icon, "niedrig") +  "</td></tr>"
+    }else{
+        x2 += "<tr><td>" + parametername + "&nbsp;&nbsp;&nbsp;" + "</td><td>" + stars(1, icon, "sehr niedrig") + "</td></tr>"
+    }
+}
+
+
+function getcpi (){
+    if(myObj.cpiIndex==5){
+        x3 += "<tr><td>" + "Preisniveau: " + "</td><td>" + stars(5, "fa fa-eur", "sehr hoch, Deutschland: 3/5"); + "</td></tr>"
+    }else if(myObj.cpiIndex==4){
+        x3 += "<tr><td>" + "Preisniveau: " + "</td><td>" + stars(4, "fa fa-eur", "hoch, Deutschland: 3/5"); + "</td></tr>"
+    }else if(myObj.cpiIndex==3){
+        x3 += "<tr><td>" + "Preisniveau: " + "</td><td>" + stars(3, "fa fa-eur", "mittel, Deutschland: 3/5"); + "</td></tr>"
+    }else if(myObj.cpiIndex==2){
+        x3 += "<tr><td>" + "Preisniveau: " + "</td><td>" + stars(2, "fa fa-eur", "niedrig, Deutschland: 3/5"); + "</td></tr>"
+    }else{
+        x3 += "<tr><td>" + "Preisniveau: " + "</td><td>" + stars(1, "fa fa-eur", "sehr niedrig, Deutschland: 3/5"); + "</td></tr>"
+    }
+}
+
+function getinfrastructure (){
+    if(myObj.infrastructureValue==5){
+        x3 += "<tr><td>" + "Infrastruktur: " + "</td><td>" + stars(5, "fas fa-subway", "sehr gut, Deutschland: 4/5"); + "</td></tr>"
+    }else if(myObj.infrastructureValue==4){
+        x3 += "<tr><td>" + "Infrastruktur: " + "</td><td>" + stars(4, "fas fa-subway", "gut, Deutschland: 4/5"); + "</td></tr>"
+    }else if(myObj.infrastructureValue==3){
+        x3 += "<tr><td>" + "Infrastruktur: " + "</td><td>" + stars(3, "fas fa-subway", "mittel, Deutschland: 4/5"); + "</td></tr>"
+    }else if(myObj.infrastructureValue==2){
+        x3 += "<tr><td>" + "Infrastruktur: " + "</td><td>" + stars(2, "fas fa-subway", "schlecht, Deutschland: 4/5"); + "</td></tr>"  
+    }else{
+        x3 += "<tr><td>" + "Infrastruktur: " + "</td><td>" + stars(1, "fas fa-subway", "sehr schlecht, Deutschland: 4/5"); + "</td></tr>"
+    }
+}
+
+function getsafety (){
+    if(myObj.safetyIndex==5){
+        x3 += "<tr><td>" + "Sicherheit: " + "</td><td>" + stars(5, "fas fa-user-shield", "sehr hoch, Deutschland: 4/5"); + "</td></tr>"
+    }else if(myObj.safetyIndex==4){
+        x3 += "<tr><td>" + "Sicherheit: " + "</td><td>" + stars(4, "fas fa-user-shield", "hoch, Deutschland: 4/5"); + "</td></tr>"
+    }else if(myObj.safetyIndex==3){
+        x3 += "<tr><td>" + "Sicherheit: " + "</td><td>" + stars(3, "fas fa-user-shield", "mittel, Deutschland: 4/5"); + "</td></tr>"
+    }else if(myObj.safetyIndex==2){
+        x3 += "<tr><td>" + "Sicherheit: " + "</td><td>" + stars(2, "fas fa-user-shield", "niedrig, Deutschland: 4/5"); + "</td></tr>"
+    }else{
+        x3 += "<tr><td>" + "Sicherheit: " + "</td><td>" + stars(1, "fas fa-user-shield", "sehr niedrig, Deutschland: 4/5"); + "</td></tr>"
+    }
+}
+
+function getbeach (){
+    if(myObj.beach_Index>1){
+        x2 += "<tr><td>" + "Strand:" + "</td><td>" + "ja" + "</td></tr>";
+    }else{
+        x2 += "<tr><td>" + "Strand:"+ "</td><td>" + "nein" + "</td></tr>";
+    }
+}
+
+function getmountains (){
+    if(myObj.formations_mIndex>1){
+        x2 += "<tr><td>" + "Berge:" + "</td><td>" + "ja" + "</td></tr>";
+    }else{
+        x2 += "<tr><td>" + "Berge:"+ "</td><td>" + "nein" + "</td></tr>";
+    }
+}
+
+function getspecial() {
+    var x = myObj;
+    var a = [x.culture_hIndex, x.culture_cIndex, x.culture_rIndex, x.culture_aIndex, x.culture_iIndex, x.culture_nIndex];
+    var indexOfMaxValue = a.reduce((iMax, x, i, arr) => x > arr[iMax] ? i : iMax, 0);
+    if(indexOfMaxValue == 0){
+        return "Geschichte";
+    }else if(indexOfMaxValue == 1){
+        return "Kultur";
+    }else if(indexOfMaxValue == 2){
+        return "Religion";
+    }else if(indexOfMaxValue == 3){
+        return "Architektur";
+    }else if(indexOfMaxValue == 4){
+        return "Industrie";
+    }else{
+        return "Natur";
+    }
+}
+
+
+
+
+
+}else{
+      alert("Wir konnten leider keine Ergebnisse zu deiner Suche finden. Ändere bitte deine Anfrage und versuche es nochmal!");
+    }
+  }
+
+  else{
+      alert("1");
+  }
+}
+
+$(document).ready(function(){
+        $('[data-toggle="tooltip"]').tooltip({
+        placement : 'right'
+        });
+    });
+
+    //alert("Bleib daheim");
+
+})
+}
+
+function loadMore() {
+for(i=1;i<10;i++){
+document.getElementById("resultcard" + i).style.display = "none";
+}
+for(i=10;i<=myObject.length;i++){
+    if(i<20){
+document.getElementById("resultcard" + i).style.display = "block";
+document.getElementById("more1").style.display = "none";
+document.getElementById("less1").style.display = "block";
+    }
+}
+}
+
+function goBack() {
+for(i=1;i<10;i++){
+document.getElementById("resultcard" + i).style.display = "block";
+}
+for(i=10;i<=myObject.length;i++){
+    if(i<20){
+document.getElementById("resultcard" + i).style.display = "none";
+document.getElementById("more1").style.display = "block";
+document.getElementById("less1").style.display = "none";
+    }
+}
+
+
+}
+
+
+
+giveResult();
+
+
+
+
+
+</script>
+
+    </div>
+  </div>
+  
+</body>
+</html>
