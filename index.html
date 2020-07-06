@@ -81,7 +81,7 @@
   
   /*when navigating through the items using the arrow keys:*/
   .autocomplete-active {
-    background-color: DodgerBlue !important; 
+    background-color: #428bca !important; 
     color: #ffffff; 
   }
   </style>
@@ -140,6 +140,81 @@
         text-align:center;
       }
 
+      .substitute-btn {
+      list-style-type: none;
+      margin: 25px 0 0 0;
+      padding: 0;
+      display: inline-grid;
+          grid-template-columns: 1fr 1fr 1fr;
+          gap:3px;
+
+      }
+
+      .substitute-btn li {
+        float: left;
+        margin: 0 5px 0 0;
+        width:100px;
+        height: 39px;
+        position: relative;
+      }
+
+      .substitute-btn label,
+      .substitute-btn input {
+        display: block;
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+      }
+
+      .substitute-btn input[type="radio"] {
+        opacity: 0.01;
+        z-index: 100;
+        width: 100%;
+        font-size:small;
+        background: #2EC5BC;
+        border: none;
+        color: white;
+      }
+
+      .substitute-btn input[type="radio"]:checked+label,
+      .Checked+label {
+        width: 100%;
+        font-size:small;
+        background: #117a8b;
+        border: none;
+        color: white;
+
+      }
+
+      .substitute-btn label {
+        padding: 5px;
+        border: 1px solid #CCC;
+        border-radius: 5px 5px 5px 5px;
+        cursor: pointer;
+        z-index: 90;
+        width: 100%;
+        font-size:small;
+        background: #2EC5BC;
+        border: none;
+        color: white;
+      }
+
+      .substitute-btn label:hover {
+        background: #DDD;
+      }
+
+      @media screen and (max-width: 450px) {
+        .substitute-btn li {
+        float: none;
+        margin: 0 5px 0 0;
+        width: 100px;
+        height: 40px;
+        position: relative;
+      }
+
+    }
 
       </style>
 
@@ -206,25 +281,42 @@
       <div class="container">
         <div class="btn-group-toggle" style="display: inline-block;" data-toggle="buttons">
           <label class="btn btn-info" style="width: 120px;" >
-            <input type="checkbox" value="2" name="beach" id="beachyes" autocomplete="off"><i class="fas fa-umbrella-beach fa-2x"></i>
+            <input type="checkbox" value="2" name="beach" id="beachyes" autocomplete="on"><i class="fas fa-umbrella-beach fa-2x"></i>
           </label>
           <label class="btn btn-info" style="width: 120px;">
-            <input type="checkbox" value="2" name="mountains" id="mountainsyes" autocomplete="off"><i class="fas fa-mountain fa-2x"></i>
+            <input type="checkbox" value="2" name="mountains" id="mountainsyes" autocomplete="on"><i class="fas fa-mountain fa-2x"></i>
         </div>
       </div>
 
       <br>  
 
     <hr>
+
     
-    <br>
+    <br><br>
 
       <div class="container">
         <i class="fa fa-bomb fa-3x"></i>
         <br><br>
           <h4>Wie wichtig ist dir ein hoher Sicherheitsgrad in deinem Reiseland?</h4>    
           <br>
-          <div class="btn-group-toggle" data-toggle="buttons" id="safety">
+
+          <ul class="substitute-btn" style="margin:auto; display:flex; float:none;justify-content: center; align-items: center;">
+            <li>
+              <input type="radio" id="safety0" name="safety" value="0" checked="checked" />
+              <label for="safety0">egal</label>
+            </li>
+            <li>
+              <input type="radio" id="safety1" name="safety" value="3" />
+              <label for="safety1">wichtig</label>
+            </li>
+            <li>
+              <input type="radio" id="safety2" name="safety" value="4" />
+              <label for="safety2">sehr wichtig</label>
+            </li>
+          </ul>
+        <br>      
+<!--           <div class="btn-group-toggle" data-toggle="buttons" id="safety">
             <label class="btn btn-info active">
               <input type="radio" name="safety" value="0" id="safety0" autocomplete="off" checked>egal
             </label>
@@ -236,7 +328,7 @@
             </label>
           </div>
         </div>
-
+ -->
     <br>
 
     <hr>
@@ -248,7 +340,23 @@
         <br><br>
           <h4>Wie wichtig sind dir niedrige Lebenshaltungskosten in deinem Reiseland?</h4>
           <br>
-          <div class="btn-group-toggle" data-toggle="buttons" id="cpi">
+          <ul class="substitute-btn" style="margin:auto; display:flex; float:none;justify-content: center; align-items: center;">
+            <li>
+              <input type="radio" id="cpi0" name="cpi" value="0" checked="checked" />
+              <label for="cpi0">egal</label>
+            </li>
+            <li>
+              <input type="radio" id="cpi1" name="cpi" value="3" />
+              <label for="cpi1">wichtig</label>
+            </li>
+            <li>
+              <input type="radio" id="cpi2" name="cpi" value="2" />
+              <label for="cpi2">sehr wichtig</label>
+            </li>
+          </ul>
+        <br>      
+
+<!--           <div class="btn-group-toggle" data-toggle="buttons" id="cpi">
             <label class="btn btn-info active">
               <input type="radio" name="cpi" value="0" id="cpi0" autocomplete="off" checked>egal
             </label>
@@ -259,7 +367,7 @@
               <input type="radio" name="cpi" value="2" id="cpi2" autocomplete="off">sehr wichtig
             </label>
           </div>
-      </div>
+ -->      </div>
 
     <br>
 
@@ -271,7 +379,24 @@
       <br><br>
           <h4>Wie wichtig ist dir eine gute Infrastruktur in deinem Reiseland?</h4>
           <br>
-          <div class="btn-group-toggle" data-toggle="buttons" id="infrastructure">
+
+          <ul class="substitute-btn" style="margin:auto; display:flex; float:none;justify-content: center; align-items: center;">
+            <li>
+              <input type="radio" id="infrastructure0" name="infra" value="0" checked="checked" />
+              <label for="infrastructure0">egal</label>
+            </li>
+            <li>
+              <input type="radio" id="infrastructure1" name="infra" value="3" />
+              <label for="infrastructure1">wichtig</label>
+            </li>
+            <li>
+              <input type="radio" id="infrastructure2" name="infra" value="4" />
+              <label for="infrastructure2">sehr wichtig</label>
+            </li>
+          </ul>
+        <br>      
+
+<!--           <div class="btn-group-toggle" data-toggle="buttons" id="infrastructure">
             <label class="btn btn-info active">
               <input type="radio" name="infra" value="0" id="infrastructure0" autocomplete="off" checked>egal
             </label>
@@ -285,7 +410,7 @@
       </div>
 
     <br>
-
+ -->
     <hr>
 
     <br>
@@ -317,8 +442,9 @@
       <div class="container">
         <h4>Wähle detaillierter aus, was dir für deine Stadt wichtig ist  </h4>
         <br>
-          <button class="btn" style="width: max-content;" type="button" data-toggle="collapse" data-target="#collapse" aria-expanded="false" aria-controls="collapseExample">
+          <button class="btn" style="margin:auto; display:flex; float:none;justify-content: center; align-items: center; width: fit-content; font-size: medium;" type="button" data-toggle="collapse" data-target="#collapse" aria-expanded="false" aria-controls="collapseExample">
           <h4>Genauere Auswahl</h4></button>
+          <br>
         <div class="collapse" id="collapse">
           
             <div class="container" style="padding-left: 0%;padding-right: 0%;">
@@ -332,8 +458,8 @@
                   </div>
                   <div id="aculture" class="collapse show" data-parent="#accordion">
                     <div class="card-body">
-                      <span><i class="fab fa-fort-awesome fa-2x"></i></span><br><br>
-                        <div class="btn-group-toggle" data-toggle="buttons">
+                      <span><i class="fab fa-fort-awesome fa-2x"></i></span><br>
+<!--                         <div class="btn-group-toggle" data-toggle="buttons">
                           <label class="btn btn-info active">
                             <input type="radio" name="aculture" value="0" id="aculture0" autocomplete="off" checked>egal
                           </label>
@@ -344,7 +470,21 @@
                             <input type="radio" name="aculture" value="4" id="aculture2" autocomplete="off">sehr wichtig
                           </label>
                         </div>
-                     </div>
+                    --><ul class="substitute-btn" style="display:inline-block;">
+                        <li>
+                          <input type="radio" id="aculture0" name="aculture" value="0" checked="checked" />
+                          <label for="aculture0">egal</label>
+                        </li>
+                        <li>
+                          <input type="radio" id="aculture1" name="aculture" value="3" />
+                          <label for="aculture1">wichtig</label>
+                        </li>
+                        <li>
+                          <input type="radio" id="aculture2" name="aculture" value="4" />
+                          <label for="aculture2">sehr wichtig</label>
+                        </li>
+                      </ul>
+                    </div>
                   </div>
                 </div>
                 <div class="card">
@@ -355,8 +495,8 @@
                   </div>
                   <div id="hculture" class="collapse" data-parent="#accordion">
                     <div class="card-body">
-                      <span><i class="fas fa-dungeon fa-2x"></i></span><br><br>
-                        <div class="btn-group-toggle"max data-toggle="buttons">
+                      <span><i class="fas fa-dungeon fa-2x"></i></span><br>
+<!--                         <div class="btn-group-toggle"max data-toggle="buttons">
                           <label class="btn btn-info active">
                             <input type="radio" name="hculture" value="0" id="hculture0" autocomplete="off" checked>egal
                           </label>
@@ -367,7 +507,21 @@
                             <input type="radio" name="hculture" value="4" id="hculture2" autocomplete="off">sehr wichtig
                           </label>
                         </div>
-                    </div>
+                    --><ul class="substitute-btn" style="display:inline-block;">
+                      <li>
+                        <input type="radio" id="hculture0" name="hculture" value="0" checked="checked" />
+                        <label for="hculture0">egal</label>
+                      </li>
+                      <li>
+                        <input type="radio" id="hculture1" name="hculture" value="3" />
+                        <label for="hculture1">wichtig</label>
+                      </li>
+                      <li>
+                        <input type="radio" id="hculture2" name="hculture" value="4" />
+                        <label for="hculture2">sehr wichtig</label>
+                      </li>
+                    </ul>                   
+                  </div>
                   </div>
                 </div>
                 <div class="card">
@@ -378,8 +532,8 @@
                   </div>
                   <div id="nculture" class="collapse" data-parent="#accordion">
                     <div class="card-body">
-                      <span><i class="fas fa-leaf fa-2x"></i></span><br><br>
-                        <div class="btn-group-toggle"max data-toggle="buttons">
+                      <span><i class="fas fa-leaf fa-2x"></i></span><br>
+<!--                         <div class="btn-group-toggle"max data-toggle="buttons">
                           <label class="btn btn-info active">
                             <input type="radio" name="nculture" value="0" id="nculture0" autocomplete="off" checked>egal
                           </label>
@@ -390,7 +544,21 @@
                             <input type="radio" name="nculture" value="4" id="nculture2" autocomplete="off">sehr wichtig
                           </label>
                         </div>
-                               </div>
+                    --><ul class="substitute-btn" style="display:inline-block;">
+                      <li>
+                        <input type="radio" id="nculture0" name="nculture" value="0" checked="checked" />
+                        <label for="nculture0">egal</label>
+                      </li>
+                      <li>
+                        <input type="radio" id="nculture1" name="nculture" value="3" />
+                        <label for="nculture1">wichtig</label>
+                      </li>
+                      <li>
+                        <input type="radio" id="nculture2" name="nculture" value="4" />
+                        <label for="nculture2">sehr wichtig</label>
+                      </li>
+                    </ul>                               
+                  </div>
                   </div>
                 </div>
                 <div class="card">
@@ -401,8 +569,8 @@
                   </div>
                   <div id="rculture" class="collapse" data-parent="#accordion">
                     <div class="card-body">
-                      <span><i class="fas fa-place-of-worship fa-2x"></i></span><br><br>
-                        <div class="btn-group-toggle"max data-toggle="buttons">
+                      <span><i class="fas fa-place-of-worship fa-2x"></i></span><br>
+<!--                         <div class="btn-group-toggle"max data-toggle="buttons">
                           <label class="btn btn-info active">
                             <input type="radio" name="rculture" value="0" id="rculture0" autocomplete="off" checked>egal
                           </label>
@@ -413,7 +581,21 @@
                             <input type="radio" name="rculture" value="4" id="rculture2" autocomplete="off">sehr wichtig
                           </label>
                         </div>
-                    </div>
+                    --><ul class="substitute-btn" style="display:inline-block;">
+                      <li>
+                        <input type="radio" id="rculture0" name="rculture" value="0" checked="checked" />
+                        <label for="rculture0">egal</label>
+                      </li>
+                      <li>
+                        <input type="radio" id="rculture1" name="rculture" value="3" />
+                        <label for="rculture1">wichtig</label>
+                      </li>
+                      <li>
+                        <input type="radio" id="rculture2" name="rculture" value="4" />
+                        <label for="rculture2">sehr wichtig</label>
+                      </li>
+                    </ul>                    
+                  </div>
                   </div>
                 </div>
                 <div class="card">
@@ -424,8 +606,8 @@
                   </div>
                   <div id="iculture" class="collapse" data-parent="#accordion">
                     <div class="card-body">
-                      <span><i class="fas fa-industry fa-2x"></i></span><br><br>
-                        <div class="btn-group-toggle"max data-toggle="buttons">
+                      <span><i class="fas fa-industry fa-2x"></i></span><br>
+<!--                         <div class="btn-group-toggle"max data-toggle="buttons">
                           <label class="btn btn-info active">
                             <input type="radio" name="iculture" value="0" id="iculture0" autocomplete="off" checked>egal
                           </label>
@@ -436,7 +618,21 @@
                             <input type="radio" name="iculture" value="4" id="iculture2" autocomplete="off">sehr wichtig
                           </label>
                         </div>
-                    </div>
+                    --><ul class="substitute-btn" style="display:inline-block;">
+                      <li>
+                        <input type="radio" id="iculture0" name="iculture" value="0" checked="checked" />
+                        <label for="iculture0">egal</label>
+                      </li>
+                      <li>
+                        <input type="radio" id="iculture1" name="iculture" value="3" />
+                        <label for="iculture1">wichtig</label>
+                      </li>
+                      <li>
+                        <input type="radio" id="iculture2" name="iculture" value="4" />
+                        <label for="iculture2">sehr wichtig</label>
+                      </li>
+                    </ul>                    
+                  </div>
                   </div>
                 </div>
                 <div class="card">
@@ -447,8 +643,8 @@
                   </div>
                   <div id="cculture" class="collapse" data-parent="#accordion">
                     <div class="card-body">
-                      <span><i class="fas fa-theater-masks fa-2x"></i></span><br><br>
-                        <div class="btn-group-toggle"max data-toggle="buttons">
+                      <span><i class="fas fa-theater-masks fa-2x"></i></span><br>
+<!--                         <div class="btn-group-toggle"max data-toggle="buttons">
                           <label class="btn btn-info active">
                             <input type="radio" name="cculture" value="0" id="cculture0" autocomplete="off" checked>egal
                           </label>
@@ -459,7 +655,21 @@
                             <input type="radio" name="cculture" value="4" id="cculture2" autocomplete="off">sehr wichtig
                           </label>
                         </div>
-                    </div>
+                    --><ul class="substitute-btn" style="display:inline-block;">
+                      <li>
+                        <input type="radio" id="cculture0" name="cculture" value="0" checked="checked" />
+                        <label for="cculture0">egal</label>
+                      </li>
+                      <li>
+                        <input type="radio" id="cculture1" name="cculture" value="3" />
+                        <label for="cculture1">wichtig</label>
+                      </li>
+                      <li>
+                        <input type="radio" id="cculture2" name="cculture" value="4" />
+                        <label for="cculture2">sehr wichtig</label>
+                      </li>
+                    </ul>                        
+                  </div>
                   </div>
                 </div>
               </div>
