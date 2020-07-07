@@ -2485,7 +2485,7 @@ xhr.addEventListener("readystatechange", function() {
 
         
 
-        var data1 = google.visualization.arrayToDataTable([
+        /* var data1 = google.visualization.arrayToDataTable([
           ['Monat', 'Min', 'Max', 'def'],
           ['Jan',  myObject[number].tmin_jan_value, myObject[number].tmax_jan_value,"abc"],
           ['Feb',  myObject[number].tmin_feb_value, myObject[number].tmax_feb_value,"abc"],
@@ -2499,11 +2499,11 @@ xhr.addEventListener("readystatechange", function() {
           ['Oct',  myObject[number].tmin_oct_value, myObject[number].tmax_oct_value,"abc"],
           ['Nov',  myObject[number].tmin_nov_value, myObject[number].tmax_nov_value,"abc"],
           ['Dec',  myObject[number].tmin_dec_value, myObject[number].tmax_dec_value,"abc"]
-        ]);
+        ]); */
         }
 
-        var width = $(parent).width();
-
+/*         var width = $(parent).width();
+ */
         var options1 = {
           title: 'Temperatur in °C',
           annotations: {
@@ -2592,7 +2592,7 @@ xhr.addEventListener("readystatechange", function() {
         if(rank==1){
         var chart11 = new google.visualization.LineChart(document.getElementById('curve_chart-1'));
         chart11.draw(data, options1);
-        }else if(rank>1 && rank<20 && rank<myObject.length){
+        }else if(rank>1 && rank<20 && (rank-1)<myObject.length){
         var chart11 = new google.visualization.LineChart(document.getElementById('curve_chart-' + rank));
         chart11.draw(data, options2);
         }

@@ -168,7 +168,8 @@
         bottom: 0;
       }
 
-      .substitute-btn input[type="radio"] {
+      .substitute-btn input[type="radio"],
+      .substitute-btn input[type="checkbox"] {
         opacity: 0.01;
         z-index: 100;
         width: 100%;
@@ -179,6 +180,7 @@
       }
 
       .substitute-btn input[type="radio"]:checked+label,
+      .substitute-btn input[type="checkbox"]:checked+label,
       .Checked+label {
         width: 100%;
         font-size:small;
@@ -202,7 +204,7 @@
       }
 
       .substitute-btn label:hover {
-        background: #DDD;
+        background: #117a8b;
       }
 
       @media screen and (max-width: 450px) {
@@ -214,6 +216,12 @@
         position: relative;
       }
 
+    }
+
+    @media screen and (max-width: 376px) {
+      .substitute-btn .bla{
+      height: 60px;
+    }
     }
 
       </style>
@@ -279,13 +287,24 @@
       <br>
 
       <div class="container">
-        <div class="btn-group-toggle" style="display: inline-block;" data-toggle="buttons">
+        <!-- <div class="btn-group-toggle" style="display: inline-block;" data-toggle="buttons">
           <label class="btn btn-info" style="width: 120px;" >
             <input type="checkbox" value="2" name="beach" id="beachyes" autocomplete="on"><i class="fas fa-umbrella-beach fa-2x"></i>
           </label>
           <label class="btn btn-info" style="width: 120px;">
             <input type="checkbox" value="2" name="mountains" id="mountainsyes" autocomplete="on"><i class="fas fa-mountain fa-2x"></i>
         </div>
+ -->
+        <ul class="substitute-btn" style="grid-template-columns: 1fr 1fr;">
+          <li style="height:50px;width: 130px;">
+            <input type="checkbox" id="beach" name="beach" value="2" autocomplete="on"/>
+            <label for="beach"><i class="fas fa-umbrella-beach fa-2x"></i></label>
+          </li>
+          <li style="height:50px;width: 130px;">
+            <input type="checkbox" id="mountains" name="mountains" value="2" autocomplete="on"/>
+            <label for="mountains"><i class="fas fa-mountain fa-2x"></i></label>
+          </li>
+        </ul>         
       </div>
 
       <br>  
@@ -302,15 +321,15 @@
           <br>
 
           <ul class="substitute-btn" style="margin:auto; display:flex; float:none;justify-content: center; align-items: center;">
-            <li>
+            <li class="bla">
               <input type="radio" id="safety0" name="safety" value="0" checked="checked" autocomplete="on"/>
               <label for="safety0">egal</label>
             </li>
-            <li>
+            <li class="bla">
               <input type="radio" id="safety1" name="safety" value="3" autocomplete="on"/>
               <label for="safety1">wichtig</label>
             </li>
-            <li>
+            <li class="bla">
               <input type="radio" id="safety2" name="safety" value="4" autocomplete="on"/>
               <label for="safety2">sehr wichtig</label>
             </li>
@@ -341,16 +360,16 @@
           <h4>Wie wichtig sind dir niedrige Lebenshaltungskosten in deinem Reiseland?</h4>
           <br>
           <ul class="substitute-btn" style="margin:auto; display:flex; float:none;justify-content: center; align-items: center;">
-            <li>
-              <input type="radio" id="cpi0" name="cpi" value="0" checked="checked" />
+            <li class="bla">
+              <input type="radio" id="cpi0" name="cpi" value="0" checked="checked" autocomplete="on"/>
               <label for="cpi0">egal</label>
             </li>
-            <li>
-              <input type="radio" id="cpi1" name="cpi" value="3" />
+            <li class="bla">
+              <input type="radio" id="cpi1" name="cpi" value="3" autocomplete="on"/>
               <label for="cpi1">wichtig</label>
             </li>
-            <li>
-              <input type="radio" id="cpi2" name="cpi" value="2" />
+            <li class="bla">
+              <input type="radio" id="cpi2" name="cpi" value="2" autocomplete="on"/>
               <label for="cpi2">sehr wichtig</label>
             </li>
           </ul>
@@ -381,16 +400,16 @@
           <br>
 
           <ul class="substitute-btn" style="margin:auto; display:flex; float:none;justify-content: center; align-items: center;">
-            <li>
-              <input type="radio" id="infrastructure0" name="infra" value="0" checked="checked" />
+            <li class="bla">
+              <input type="radio" id="infrastructure0" name="infra" value="0" checked="checked" autocomplete="on"/>
               <label for="infrastructure0">egal</label>
             </li>
-            <li>
-              <input type="radio" id="infrastructure1" name="infra" value="3" />
+            <li class="bla">
+              <input type="radio" id="infrastructure1" name="infra" value="3" autocomplete="on"/>
               <label for="infrastructure1">wichtig</label>
             </li>
-            <li>
-              <input type="radio" id="infrastructure2" name="infra" value="4" />
+            <li class="bla">
+              <input type="radio" id="infrastructure2" name="infra" value="4" autocomplete="on"/>
               <label for="infrastructure2">sehr wichtig</label>
             </li>
           </ul>
@@ -472,15 +491,15 @@
                         </div>
                     --><ul class="substitute-btn" style="display:inline-block;">
                         <li>
-                          <input type="radio" id="aculture0" name="aculture" value="0" checked="checked" />
+                          <input type="radio" id="aculture0" name="aculture" value="0" checked="checked" autocomplete="on"/>
                           <label for="aculture0">egal</label>
                         </li>
                         <li>
-                          <input type="radio" id="aculture1" name="aculture" value="3" />
+                          <input type="radio" id="aculture1" name="aculture" value="3" autocomplete="on"/>
                           <label for="aculture1">wichtig</label>
                         </li>
                         <li>
-                          <input type="radio" id="aculture2" name="aculture" value="4" />
+                          <input type="radio" id="aculture2" name="aculture" value="4" autocomplete="on"/>
                           <label for="aculture2">sehr wichtig</label>
                         </li>
                       </ul>
@@ -509,15 +528,15 @@
                         </div>
                     --><ul class="substitute-btn" style="display:inline-block;">
                       <li>
-                        <input type="radio" id="hculture0" name="hculture" value="0" checked="checked" />
+                        <input type="radio" id="hculture0" name="hculture" value="0" checked="checked" autocomplete="on"/>
                         <label for="hculture0">egal</label>
                       </li>
                       <li>
-                        <input type="radio" id="hculture1" name="hculture" value="3" />
+                        <input type="radio" id="hculture1" name="hculture" value="3" autocomplete="on"/>
                         <label for="hculture1">wichtig</label>
                       </li>
                       <li>
-                        <input type="radio" id="hculture2" name="hculture" value="4" />
+                        <input type="radio" id="hculture2" name="hculture" value="4" autocomplete="on"/>
                         <label for="hculture2">sehr wichtig</label>
                       </li>
                     </ul>                   
@@ -546,15 +565,15 @@
                         </div>
                     --><ul class="substitute-btn" style="display:inline-block;">
                       <li>
-                        <input type="radio" id="nculture0" name="nculture" value="0" checked="checked" />
+                        <input type="radio" id="nculture0" name="nculture" value="0" checked="checked" autocomplete="on"/>
                         <label for="nculture0">egal</label>
                       </li>
                       <li>
-                        <input type="radio" id="nculture1" name="nculture" value="3" />
+                        <input type="radio" id="nculture1" name="nculture" value="3" autocomplete="on"/>
                         <label for="nculture1">wichtig</label>
                       </li>
                       <li>
-                        <input type="radio" id="nculture2" name="nculture" value="4" />
+                        <input type="radio" id="nculture2" name="nculture" value="4" autocomplete="on"/>
                         <label for="nculture2">sehr wichtig</label>
                       </li>
                     </ul>                               
@@ -583,15 +602,15 @@
                         </div>
                     --><ul class="substitute-btn" style="display:inline-block;">
                       <li>
-                        <input type="radio" id="rculture0" name="rculture" value="0" checked="checked" />
+                        <input type="radio" id="rculture0" name="rculture" value="0" checked="checked" autocomplete="on"/>
                         <label for="rculture0">egal</label>
                       </li>
                       <li>
-                        <input type="radio" id="rculture1" name="rculture" value="3" />
+                        <input type="radio" id="rculture1" name="rculture" value="3" autocomplete="on"/>
                         <label for="rculture1">wichtig</label>
                       </li>
                       <li>
-                        <input type="radio" id="rculture2" name="rculture" value="4" />
+                        <input type="radio" id="rculture2" name="rculture" value="4" autocomplete="on"/>
                         <label for="rculture2">sehr wichtig</label>
                       </li>
                     </ul>                    
@@ -620,15 +639,15 @@
                         </div>
                     --><ul class="substitute-btn" style="display:inline-block;">
                       <li>
-                        <input type="radio" id="iculture0" name="iculture" value="0" checked="checked" />
+                        <input type="radio" id="iculture0" name="iculture" value="0" checked="checked" autocomplete="on"/>
                         <label for="iculture0">egal</label>
                       </li>
                       <li>
-                        <input type="radio" id="iculture1" name="iculture" value="3" />
+                        <input type="radio" id="iculture1" name="iculture" value="3" autocomplete="on"/>
                         <label for="iculture1">wichtig</label>
                       </li>
                       <li>
-                        <input type="radio" id="iculture2" name="iculture" value="4" />
+                        <input type="radio" id="iculture2" name="iculture" value="4" autocomplete="on"/>
                         <label for="iculture2">sehr wichtig</label>
                       </li>
                     </ul>                    
@@ -657,15 +676,15 @@
                         </div>
                     --><ul class="substitute-btn" style="display:inline-block;">
                       <li>
-                        <input type="radio" id="cculture0" name="cculture" value="0" checked="checked" />
+                        <input type="radio" id="cculture0" name="cculture" value="0" checked="checked" autocomplete="on"/>
                         <label for="cculture0">egal</label>
                       </li>
                       <li>
-                        <input type="radio" id="cculture1" name="cculture" value="3" />
+                        <input type="radio" id="cculture1" name="cculture" value="3" autocomplete="on"/>
                         <label for="cculture1">wichtig</label>
                       </li>
                       <li>
-                        <input type="radio" id="cculture2" name="cculture" value="4" />
+                        <input type="radio" id="cculture2" name="cculture" value="4" autocomplete="on"/>
                         <label for="cculture2">sehr wichtig</label>
                       </li>
                     </ul>                        
