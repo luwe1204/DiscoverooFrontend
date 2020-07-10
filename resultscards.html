@@ -202,7 +202,6 @@
         <div class="row">
             <div class="col-sm">
                 <div class="card" style="padding-top: 15px;" class="resultcard" id="resultcard1">
-                    <img src="1st.png" alt="1st" style="height: 48px; width: auto; position:absolute; top:1rem; right:1rem;">
                     <div id="info1"></div>
                     <span class="row">
                         <span class="col-sm">
@@ -2644,7 +2643,10 @@ xhr.addEventListener("readystatechange", function() {
 
 
     if(rank==1){
-    info = ""
+        if(queryString==""){
+        info = ""
+        }else if(queryString!=""){
+    info = "<img src='1st.png' alt='1st' style='height: 48px; width: auto; position:absolute; top:1rem; right:1rem;'>"}
 
     }else{
     info = "<br>" + "<p>" + "Hier finden Sie weiterführende Informationen zu:" + "</p>"}
@@ -2767,7 +2769,7 @@ xhr.addEventListener("readystatechange", function() {
     getcpi();
     getinfrastructure();
     getsafety();
-    x3 += "<tr><td>" + "Landfläche: " + "</td><td>" + myObj.countrySizeKmSq + "km<sup>2</sup>" + "</td></tr>";
+    x3 += "<tr><td>" + "Landfläche: " + "</td><td>" + formatNumber(myObj.countrySizeKmSq) + "km<sup>2</sup>" + "</td></tr>";
     x3 += "</tbody></table>"
 
 
@@ -2777,7 +2779,7 @@ xhr.addEventListener("readystatechange", function() {
     getcpi();
     getinfrastructure();
     getsafety();
-    x3 += "<tr><td>" + "Landfläche: " + "</td><td>" + myObj.countrySizeKmSq + "km<sup>2</sup>" + "</td></tr>";
+    x3 += "<tr><td>" + "Landfläche: " + "</td><td>" + formatNumber(myObj.countrySizeKmSq) + "km<sup>2</sup>" + "</td></tr>";
     x3 += "</tbody></table>"
     }
 
@@ -3110,10 +3112,16 @@ function stars(numberofstars, icon, Tooltip){
 }
 
 function place(rank){
-if(rank==2){
-    x1 =  "<img src='2nd.png' alt='2nd' style='height: 48px; width: auto; position:absolute; top:1rem; right:1rem;'>"}
+if(rank==2 ){
+    if(queryString==""){
+        x1 = ""
+        }else if(queryString!=""){
+    x1 =  "<img src='2nd.png' alt='2nd' style='height: 48px; width: auto; position:absolute; top:1rem; right:1rem;'>"}}
 else if(rank==3){
-    x1 =  "<img src='3rd.png' alt='3rd' style='height: 48px; width: auto; position:absolute; top:1rem; right:1rem;'>"}
+    if(queryString==""){
+        x1 = ""
+        }else if(queryString!=""){
+    x1 =  "<img src='3rd.png' alt='3rd' style='height: 48px; width: auto; position:absolute; top:1rem; right:1rem;'>"}}
 else{
 x1 = ""
 }
